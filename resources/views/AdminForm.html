@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="adminstyle.css" />
+    <title>Humic Form Admin</title>
+</head>
+
+<body>
+    <!-- input banner -->
+    <div class="status">
+        <h1>Upload Banner</h1>
+        <div class="form__title">
+            <input type="text" placeholder="Judul Form" size="20">
+        </div>
+        <div class="form__description">
+            <input type="text" placeholder="Deskripsi Form" size="20">
+        </div>
+        <div class="upload-container">
+            <input type="file" id="bannerUploadInput" accept="image/*" />
+            <button id="uploadBannerBtn">Upload Banner</button>
+        </div>
+        <div class="uploaded-banner">
+            <h2>Uploaded Banner Preview:</h2>
+            <img id="uploadedBannerImage" src="#" alt="Uploaded Banner" />
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal" id="todo_form">
+        <div class="header">
+            <div class="title">Tambahkan pertanyaan</div>
+            <button class="btn close-modal">&times;</button>
+        </div>
+        
+        <div class="body">
+            <input type="text" id="todo_input" />
+            <input type="submit" value="Add Todo" id="todo_submit" />
+            <label for="numRadioOptions">Number of Radio Options:</label>
+            <input type="number" id="numRadioOptions" min="0" max="10" value="0" />
+            <div id="radioOptionsContainer"></div>
+            <div>
+                <input type="checkbox" id="enableTextField" />
+                <label for="enableTextField">Enable Text Field</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add question -->
+    <div class="todo-container">
+        <div class="status" id="no_status">
+            <h1>Tambahkan</h1>
+            <button id="add_btn" data-target-modal="#todo_form">+ Tambahkan Pertanyaan</button>
+        </div>
+        <div class="status">
+            <h1>List Pertanyaan</h1>
+        </div>
+
+        <!-- Tab signature -->
+        <div class="status">
+            <h1>Signature</h1>
+            <div class="signature-container">
+                <h2>Signature Field:</h2>
+                <canvas id="signatureCanvas" width="300" height="80"></canvas>
+                <button id="clearSignatureBtn">Clear Signature</button>
+            </div>
+            <button id="submitBtn">Submit</button>
+        </div>
+
+    </div>
+    <div id="overlay"></div>
+
+    <script src="adminjs.js"></script>
+</body>
+
+</html>
