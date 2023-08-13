@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', serif;
+    font-weight: 300;
+    background-color: #333;
+}
+
+#menu-button {
+    cursor: pointer;
+    padding: 0.5rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    #menu-button {
+        display: none;
+    }
+}
+
+#menu-button .bar1,
+#menu-button .bar2,
+#menu-button .bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: #fefffe;
+    margin: 6px 0;
+}
+
+.main-nav {
+    display: block;
+    padding: 1rem 2rem;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    transition: background 0.3s ease-in-out;
+}
+
+.main-nav .Hamburg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .main-nav {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+.main-nav .nav-links {
+    position: relative;
+    top: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: none;
+    overflow: hidden;
+    height: 0;
+    background: transparent;
+}
+
+@media (min-width: 768px) {
+    .main-nav .nav-links {
+        display: flex;
+        height: auto;
+    }
+}
+
+.main-nav .nav-links li {
+    margin: 1rem;
+    text-align: center;
+}
+
+.main-nav .nav-links li a {
+    color: #fefffe;
+    display: inline-block;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.main-nav .nav-links li a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main-nav .nav-open {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    background: grey;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.main-nav .nav-open li {
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-nav .nav-open li a {
+    padding: 3rem 0;
+    display: block;
+    color: #fefffe;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.main-nav .nav-open li a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3.25rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0;
+}
+
+@media (min-width: 544px) {
+    header h1 {
+        font-size: 4.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 6.25rem;
+    }
+}
+
+header h2 {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.img-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.wrap-container {
+    padding: 2rem;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    background-color: grey;
+    padding: 2rem;
+    margin-bottom: -1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.photo {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.photo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text {
+    flex: 2;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text p {
+    font-size: 18px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 1rem;
+    }
+}
+
+h2 {
+    text-align: center;
+    padding: 2rem;
+    margin-top: rem;
+}

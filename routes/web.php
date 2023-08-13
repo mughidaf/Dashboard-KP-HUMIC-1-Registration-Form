@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/AdminAddForm', function () {
+    return view('AdminAddForm');
+});
+
+Route::get('/Homepage', function () {
+    return view('Homepage');
+});
