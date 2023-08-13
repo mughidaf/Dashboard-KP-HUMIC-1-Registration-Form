@@ -9,7 +9,17 @@ const bannerUploadInput = document.getElementById('bannerUploadInput');
 const uploadBannerBtn = document.getElementById('uploadBannerBtn');
 const uploadedBannerImage = document.getElementById('uploadedBannerImage');
 
+
 let draggableTodo = null;
+
+uploadBannerBtn.addEventListener('click', () => {
+    if (bannerUploadInput.files.length > 0) {
+        const bannerFile = bannerUploadInput.files[0];
+        const bannerUrl = URL.createObjectURL(bannerFile);
+        uploadedBannerImage.src = bannerUrl;
+        uploadedBannerImage.style.display = 'block';
+    }
+});
 
 function dragStart() {
     draggableTodo = this;
@@ -45,15 +55,6 @@ function dragDrop() {
 todos.forEach((todo) => {
     todo.addEventListener("dragstart", dragStart);
     todo.addEventListener("dragend", dragEnd);
-});
-
-uploadBannerBtn.addEventListener('click', () => {
-    if (bannerUploadInput.files.length > 0) {
-        const bannerFile = bannerUploadInput.files[0];
-        const bannerUrl = URL.createObjectURL(bannerFile);
-        uploadedBannerImage.src = bannerUrl;
-        uploadedBannerImage.style.display = 'block';
-    }
 });
 
 allStatus.forEach((status) => {
@@ -122,7 +123,7 @@ function createTodo() {
 
 todoSubmit.addEventListener("click", createTodo);
 
-// Tanda tangan
+// TTD
 const signatureCanvas = document.getElementById("signatureCanvas");
 const clearSignatureBtn = document.getElementById("clearSignatureBtn");
 const signatureCtx = signatureCanvas.getContext("2d");
