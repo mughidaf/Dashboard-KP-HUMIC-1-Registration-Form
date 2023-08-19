@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Homepage');
+    return view('ResponsePage');
 });
 
 Route::get('/AdminAddForm', function () {
@@ -23,4 +23,12 @@ Route::get('/AdminAddForm', function () {
 
 Route::get('/Homepage', function () {
     return view('Homepage');
+});
+
+Route::get('/ResponsePage', function () {
+    return view('ResponsePage');
+});
+
+Route::get('/MoreOption', function () {
+    return view('MoreOption');
 });

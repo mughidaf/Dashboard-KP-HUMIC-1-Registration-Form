@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-
-
     //ini buat tiap neken option radio maka akan muncul radio
     addRadio.addEventListener("click", function(event) {
         event.preventDefault();
