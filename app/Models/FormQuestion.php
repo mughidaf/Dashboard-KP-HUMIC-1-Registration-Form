@@ -17,4 +17,8 @@ class FormQuestion extends Model
     public function Answers(){
         return $this->hasMany(FormAnswer::class,'questionID');
     }
+
+    public function Options(){
+        return $this->hasMany(FormOption::class,'questionID');
+    }
 }

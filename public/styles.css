@@ -1,0 +1,129 @@
+.question-group {
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #ff5555;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h2,
+h3 {
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+.deskripsi {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Memastikan lebar elemen tidak melebar */
+}
+
+/* Mengatur ukuran minimal textarea agar tidak terlalu pendek */
+textarea {
+    min-height: 100px;
+}
+
+.upload-file {
+    border: 1px solid grey; /* Atur ukuran dan warna border sesuai kebutuhan */
+    text-align: center; /* Agar teks berada di tengah tombol */
+    padding-bottom: 10px;
+    background-color: white;
+    color: grey;
+    cursor: not-allowed;
+}
+
+button {
+    background-color: #ff5555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px !important;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: #ff5555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-container button:first-child {
+    background-color: #666; /* Warna abu-abu untuk tombol Cancel */
+}
+
+.jawaban {
+    max-width: 300px;
+}
+
+.remove {
+    margin-left: 5px;
+}
+
+/* Gaya tampilan tanda centang kustom */
+.custom-checkbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Gaya tampilan wrapper opsi */
+.option-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Gaya tampilan wrapper opsi ketika dipilih */
+.option-wrapper.selected .custom-checkbox {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.dropdpown .btn {
+    background-color: #ff5555;
+}
