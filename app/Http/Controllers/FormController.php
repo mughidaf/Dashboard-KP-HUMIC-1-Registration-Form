@@ -38,11 +38,11 @@ class FormController extends Controller
                 'type' => $tipe[$i]
             ]);
 
-            $questionID = FormQuestion::latest()->first()->id;
             $mark = $rujukan[$i];
             if ($tipe[$i] == 'choice'){
                 for ($j = 0; $j < count($opsi); $j++ ){
                     if($tanda[$j] == $mark){
+                        $questionID = FormQuestion::where('question', $pertanyaan[$i])->first()->id;
                         FormOption::create([
                             'questionID' => $questionID,
                             'option' => $opsi[$j]
