@@ -18,11 +18,11 @@ Route::get('/', function () {
     return view('ResponsePage');
 });
 
-Route::get('/AdminAddForm', function () {
-    return view('testing');
+Route::get('/formMaker', function () {
+    return view('FormMaker');
 });
 
-Route::post('/test', [FormController::class,'test']);
+Route::post('/storeForm', [FormController::class,'store']);
 
 Route::get('/ResponsePage', function () {
     return view('ResponsePage');

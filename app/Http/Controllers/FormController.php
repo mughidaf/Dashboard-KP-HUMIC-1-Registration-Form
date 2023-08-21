@@ -6,6 +6,8 @@ use App\Models\Form;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFormRequest;
 use App\Http\Requests\UpdateFormRequest;
+use App\Models\FormOption;
+use App\Models\FormQuestion;
 use Symfony\Component\HttpFoundation\Request;
 
 class FormController extends Controller
@@ -14,15 +16,43 @@ class FormController extends Controller
      * Display a listing of the resource.
      */
 
-     public function test(Request $request){
-        $judul = $request->judul;
-        $deskripsi = $request->deskripsi;
-        $pertanyaan = $request->pertanyaan;
-        $rujukan = $request->rujukan;
-        $tipe = $request->tipe;
-        $tanda = $request->input("tanda-opsi");
-        $opsi = $request->opsi;
-        dd($opsi);
+     public function store(Request $request){
+         $judul = $request->judul;
+         $deskripsi = $request->deskripsi;
+         $pertanyaan = $request->pertanyaan;
+         $rujukan = $request->rujukan;
+         $tipe = $request->tipe;
+         $tanda = $request->input("tanda-opsi");
+         $opsi = $request->opsi;
+
+        Form::create([
+            'judul' => $judul,
+            'deskripsi' => $deskripsi
+        ]);
+
+        $formID = Form::latest()->first()->id;
+        for ($i = 0; $i < count($pertanyaan);$i++){
+            FormQuestion::create([
+                'formID' => $formID,
+                'question' => $pertanyaan[$i],
+                'type' => $tipe[$i]
+            ]);
+
+            $questionID = FormQuestion::latest()->first()->id;
+            $mark = $rujukan[$i];
+            if ($tipe[$i] == 'choice'){
+                for ($j = 0; $j < count($opsi); $j++ ){
+                    if($tanda[$j] == $mark){
+                        FormOption::create([
+                            'questionID' => $questionID,
+                            'option' => $opsi[$j]
+                        ]);
+                    }
+                }
+            }
+        }
+
+
      }
     
     public function index()
@@ -41,10 +71,6 @@ class FormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFormRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.

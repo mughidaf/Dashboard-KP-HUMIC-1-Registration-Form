@@ -13,7 +13,7 @@
     </header>
     <main>
       <div class="container">
-        <form id="formCreator" action="test" method="post">
+        <form id="formCreator" action="storeForm" method="post">
           @csrf
           <div class="form-container">
             <label for="judul">Judul Form:</label>
