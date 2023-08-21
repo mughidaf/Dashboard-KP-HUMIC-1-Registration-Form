@@ -15,7 +15,14 @@ class FormController extends Controller
      */
 
      public function test(Request $request){
-        dd($request);
+        $judul = $request->judul;
+        $deskripsi = $request->deskripsi;
+        $pertanyaan = $request->pertanyaan;
+        $rujukan = $request->rujukan;
+        $tipe = $request->tipe;
+        $tanda = $request->input("tanda-opsi");
+        $opsi = $request->opsi;
+        dd($opsi);
      }
     
     public function index()
