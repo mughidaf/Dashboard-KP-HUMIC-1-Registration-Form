@@ -19,10 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/AdminAddForm', function () {
-    return view('AdminAddForm');
+    return view('testing');
 });
 
-Route::get('/test', [FormController::class,'test']);
+Route::post('/test', [FormController::class,'test']);
 
 Route::get('/ResponsePage', function () {
     return view('ResponsePage');

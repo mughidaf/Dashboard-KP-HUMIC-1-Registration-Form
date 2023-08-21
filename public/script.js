@@ -28,6 +28,12 @@ teksButton.addEventListener("click", function () {
     hiddenInput.name = "rujukan[]";
     hiddenInput.value = counter;
 
+    //Buat elemen input tipe (hidden)
+    const hiddenTipe = document.createElement("input");
+    hiddenTipe.type = "hidden";
+    hiddenTipe.name = "tipe[]";
+    hiddenTipe.value = "teks";
+
     // Buat elemen input jawaban baru
     const answerInput = document.createElement("input");
     answerInput.classList.add("jawaban");
@@ -45,6 +51,7 @@ teksButton.addEventListener("click", function () {
     // Tambahkan elemen-elemen ke dalam grup pertanyaan
     questionGroup.appendChild(questionInput);
     questionGroup.appendChild(hiddenInput);
+    questionGroup.appendChild(hiddenTipe);
     questionGroup.appendChild(answerInput);
     questionGroup.appendChild(removeButton);
 
@@ -80,6 +87,12 @@ choiceButton.addEventListener("click", function () {
     hiddenInput.type = "hidden";
     hiddenInput.name = "rujukan[]";
     hiddenInput.value = counter;
+
+    //Buat elemen input tipe (hidden)
+    const hiddenTipe = document.createElement("input");
+    hiddenTipe.type = "hidden";
+    hiddenTipe.name = "tipe[]";
+    hiddenTipe.value = "choice";
 
     // Buat elemen div "opsi-jawaban"
     const opsiJawaban = document.createElement("div");
@@ -140,6 +153,7 @@ choiceButton.addEventListener("click", function () {
     // Tambahkan elemen-elemen ke dalam grup pertanyaan
     questionGroup.appendChild(questionInput);
     questionGroup.appendChild(hiddenInput);
+    questionGroup.appendChild(hiddenTipe);
     questionGroup.appendChild(opsiJawaban);
     questionGroup.appendChild(tombolOpsiContainer);
     questionGroup.appendChild(removeButton);
@@ -237,6 +251,12 @@ fileButton.addEventListener("click", function () {
     hiddenInput.name = "rujukan[]";
     hiddenInput.value = counter;
 
+    //Buat elemen input tipe (hidden)
+    const hiddenTipe = document.createElement("input");
+    hiddenTipe.type = "hidden";
+    hiddenTipe.name = "tipe[]";
+    hiddenTipe.value = "file";
+
     // Buat elemen div untuk tombol "Upload file"
     const uploadDiv = document.createElement("div");
     const uploadButton = document.createElement("button");
@@ -253,6 +273,7 @@ fileButton.addEventListener("click", function () {
     // Tambahkan elemen-elemen ke dalam grup pertanyaan
     questionGroup.appendChild(questionInput);
     questionGroup.appendChild(hiddenInput);
+    questionGroup.appendChild(hiddenTipe);
     questionGroup.appendChild(uploadDiv);
     questionGroup.appendChild(removeButton);
 
@@ -289,6 +310,12 @@ signButton.addEventListener("click", function () {
     hiddenInput.name = "rujukan[]";
     hiddenInput.value = counter;
 
+    //Buat elemen input tipe (hidden)
+    const hiddenTipe = document.createElement("input");
+    hiddenTipe.type = "hidden";
+    hiddenTipe.name = "tipe[]";
+    hiddenTipe.value = "ttd";
+
     // Buat elemen div untuk textarea
     const textareaDiv = document.createElement("div");
     const textarea = document.createElement("textarea");
@@ -306,6 +333,7 @@ signButton.addEventListener("click", function () {
     // Tambahkan elemen-elemen ke dalam grup pertanyaan
     questionGroup.appendChild(questionInput);
     questionGroup.appendChild(hiddenInput);
+    questionGroup.appendChild(hiddenTipe);
     questionGroup.appendChild(textareaDiv);
     questionGroup.appendChild(removeButton);
 
