@@ -29,3 +29,7 @@ Route::get('/ResponsePage', function () {
 Route::get('/MoreOption', function () {
     return view('MoreOption');
 });
+
+Route::get('/UserViewForm', function () {
+    return view('UserViewForm');
+});
