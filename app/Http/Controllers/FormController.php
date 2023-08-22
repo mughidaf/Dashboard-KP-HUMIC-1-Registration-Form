@@ -42,7 +42,7 @@ class FormController extends Controller
             if ($tipe[$i] == 'choice'){
                 for ($j = 0; $j < count($opsi); $j++ ){
                     if($tanda[$j] == $mark){
-                        $questionID = FormQuestion::where('question', $pertanyaan[$i])->first()->id;
+                        $questionID = FormQuestion::where('question', $pertanyaan[$i])->latest()->first()->id;
                         FormOption::create([
                             'questionID' => $questionID,
                             'option' => $opsi[$j]
@@ -58,6 +58,9 @@ class FormController extends Controller
     public function index()
     {
         //
+        $forms = Form::all();
+
+        return(view('Homepage',['forms' => $forms]));
     }
 
     /**

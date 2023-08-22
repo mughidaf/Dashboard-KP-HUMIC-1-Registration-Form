@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('ResponsePage');
-});
+Route::get('/', [FormController::class,'index']);
 
 Route::get('/formMaker', function () {
     return view('FormMaker');

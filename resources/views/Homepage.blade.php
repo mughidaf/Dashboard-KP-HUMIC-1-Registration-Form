@@ -31,7 +31,6 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
                 <li><a href="#">Contact</a></li>
 
                 <li><a href="#">Login</a></li>
@@ -42,14 +41,16 @@
     <header>
         <img class="img-absolute" src="/image/banner.jpeg">
         <div class="wrapper astonish animated fadeInDown">
-            <h1><strong>Humic</strong></h1>
-            <h2>Lol</h2>
+            <h1><strong>Humic Engineering</strong></h1>
+            <h2>To become an excellent research center in the field of engineering to improve the human health and prosperity</h2>
         </div>
     </header>
 
 
     <main>
         <h2>News & Activity</h2>
+        @foreach ($forms as $form)
+            
         <div class="wrap-container">
             <a href="#">
                 <div class="container">
@@ -57,27 +58,14 @@
                         <img src="/image/banner.jpeg" alt="Small Photo">
                     </div>
                     <div class="text">
-                        <p><strong>Titel nya</strong></p>
-                        <p>Info gan</p>
+                        <p><strong>{{$form->judul}}</strong></p>
+                        <br>
+                        <p>{{$form->deskripsi}}</p>
                     </div>
                 </div>
             </a>
         </div>
-
-        <div class="wrap-container">
-            <a href="#">
-                <div class="container">
-                    <div class="photo">
-                        <img src="/image/banner.jpeg" alt="Small Photo">
-                    </div>
-                    <div class="text">
-                        <p><strong>Titel nya</strong></p>
-                        <p>Info gan</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
+        @endforeach
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
