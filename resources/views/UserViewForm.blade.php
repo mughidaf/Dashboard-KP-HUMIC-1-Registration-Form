@@ -74,9 +74,9 @@
                         <h4 style="color: red;">*</h4>
                         @foreach ($tanya->Options as $opsi)
                         <div class="radio">
-                            <input id="radio-1" name="radio" type="radio" checked>
+                            <input id="radio-1" name="radio" type="radio">
                             <label for="radio-1" class="radio-label">{{$opsi->option}}</label>
-                          </div>
+                        </div>
                         @endforeach
                     </div>
                     @endif
