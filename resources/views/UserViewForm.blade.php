@@ -17,7 +17,6 @@
             <form id="formCreator" action="storeForm" method="post">
             @csrf
                 <div class="form-container">
-                    <form action="">
                         <img src="/image/Humic-Logi.png" alt="Banner" >
                         <div class="main">
                         <h1>The Question</h1>
@@ -27,27 +26,25 @@
                         </p>
                         <h4 style="color: red;">* Required</h4>
                         </div>
-                    </form>
                 </div>
 
                 <div class="form-container">
                     <label class="label">Email address</label>
                     <h4 style="color: red;">*</h4>
-                    <div class="radio-wrap">
-                        <form class="form">
-                            <label for="01">One</label>
-                            <input id="01" type="radio" name="r" value="1" checked="">
-                            <label for="02">Two</label>
-                            <input id="02" type="radio" name="r" value="2">
-                            <label for="03">Three</label>
-                            <input id="03" type="radio" name="r" value="3">
-                        </form>
+                    <div class="radio">
+                        <input id="radio-1" name="radio" type="radio" checked>
+                        <label for="radio-1" class="radio-label">ch1</label>
+                      </div>
+                    
+                      <div class="radio">
+                        <input id="radio-2" name="radio" type="radio">
+                        <label  for="radio-2" class="radio-label">ch2</label>
                     </div>
                 </div>
 
                 <div class="form-container">
                     <div class="-mx-4 flex flex-wrap">
-                        <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+                        <div class="w-full">
                            <div class="mb-12">
                               <label class="mb-3 block text-base font-medium text-black">
                               Name
@@ -62,10 +59,36 @@
                         </div>
                      </div>
                 </div>
+
+                <div class="form-container">
+                    {{-- ttd --}}
+                </div>
+
+                {{-- file upload --}}
+                <div class="form-container">
+                    <label class="mb-3 block text-base font-medium text-black">
+                        Name
+                    </label>
+                    <h4 style="color: red;">*</h4>
+                    <div class="upload-container">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">
+                            <p>Drag and drop your files here or</p>
+                            <label for="file-input" class="custom-btn">Browse</label>
+                            {{-- accep tipe file nya --}}
+                            <input type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
+
     </main>
     <script src="/script.js"></script>
+    <script src="UserViewForm.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
