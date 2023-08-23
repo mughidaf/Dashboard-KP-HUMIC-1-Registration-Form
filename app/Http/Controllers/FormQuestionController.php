@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\FormQuestion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFormQuestionRequest;
@@ -36,9 +37,10 @@ class FormQuestionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FormQuestion $formQuestion)
+    public function show($id)
     {
-        //
+        $form = Form::find($id);
+        return(view('UserViewForm',['form' => $form]));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\FormQuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,5 @@ Route::get('/MoreOption', function () {
 Route::get('/UserViewForm', function () {
     return view('UserViewForm');
 });
+
+Route::get('/userForm/{id}',[FormQuestionController::class,'show']);

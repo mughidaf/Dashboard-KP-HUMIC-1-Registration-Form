@@ -52,7 +52,7 @@
         @foreach ($forms as $form)
             
         <div class="wrap-container">
-            <a href="#">
+            <a href="/userForm/{{$form->id}}">
                 <div class="container">
                     <div class="photo">
                         <img src="/image/banner.jpeg" alt="Small Photo">
