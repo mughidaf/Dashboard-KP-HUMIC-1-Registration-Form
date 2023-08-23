@@ -1,5 +1,9 @@
 const uploadContainer = document.querySelector('.upload-container');
 const fileInput = document.getElementById('file-input');
+const signatureCanvas = document.getElementById("signatureCanvas");
+const clearSignatureBtn = document.getElementById("clearSignatureBtn");
+const signatureCtx = signatureCanvas.getContext("2d");
+let isDrawing = false;
 
 uploadContainer.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -40,3 +44,39 @@ function displayFile(file) {
 
     uploadText.appendChild(fileDisplay);
 }
+
+//ttd
+
+function startPosition(e) {
+    isDrawing = true;
+    draw(e);
+}
+
+function endPosition() {
+    isDrawing = false;
+    signatureCtx.beginPath();
+}
+
+function draw(e) {
+    if (!isDrawing) return;
+
+    const rect = signatureCanvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    signatureCtx.lineWidth = 2;
+    signatureCtx.lineCap = "round";
+    signatureCtx.strokeStyle = "black";
+
+    signatureCtx.lineTo(x, y);
+    signatureCtx.stroke();
+    signatureCtx.beginPath();
+    signatureCtx.moveTo(x, y);
+}
+
+signatureCanvas.addEventListener("mousedown", startPosition);
+signatureCanvas.addEventListener("mouseup", endPosition);
+signatureCanvas.addEventListener("mousemove", draw);
+clearSignatureBtn.addEventListener("click", () => {
+    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+});

@@ -43,10 +43,15 @@
 </head>
 
 <body>
-    <div class="file-upload">
-        <div class="file-upload-icon">&#128206;</div>
-        <div class="file-upload-text">Drag and drop your file here or <label for="upload">browse</label> to select a file.</div>
-        <input type="file" id="upload">
+    <div class="form-container">
+        <div class="status">
+            <div class="signature-container">
+                <h2>Signature Field:</h2>
+                <canvas id="signatureCanvas" width="300" height="80"></canvas>
+                <button id="clearSignatureBtn">Clear Signature</button>
+            </div>
+            <button id="submitBtn">Submit</button>
+        </div>
     </div>
 </body>
 

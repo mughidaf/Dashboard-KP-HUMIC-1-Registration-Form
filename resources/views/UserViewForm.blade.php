@@ -61,7 +61,18 @@
                 </div>
 
                 <div class="form-container">
-                    {{-- ttd --}}
+                    <label class="mb-3 block text-base font-medium text-black">
+                        Name
+                        </label>
+                        <h4 style="color: red;">*</h4>
+                    <div class="status">
+                        <div class="signature-container">
+                         
+                            <canvas id="signatureCanvas" width="600" height="150"></canvas>
+                            <button id="clearSignatureBtn">Clear Signature</button>
+                        </div>
+                        <button id="submitBtn">Submit</button>
+                    </div>
                 </div>
 
                 {{-- file upload --}}
