@@ -88,13 +88,12 @@
                         <h4 style="color: red;">*</h4>
                     <div class="status">
                         <div class="signature-container">
-                         
                             <canvas id="signatureCanvas" width="600" height="150"></canvas>
                             <button id="clearSignatureBtn">Clear Signature</button>
                         </div>
-                        <button id="submitBtn">Submit</button>
                     </div>
                 </div>
+                <button id="submitBtn">Submit</button>
             </form>
         </div>
 
