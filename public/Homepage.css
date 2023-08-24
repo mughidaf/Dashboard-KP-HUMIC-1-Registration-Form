@@ -144,7 +144,7 @@ header h1 {
     margin: 0;
 }
 
-@media (min-width: 544px) {
+@media (min-width: 768px) {
     header h1 {
         font-size: 4.25rem;
     }
@@ -174,10 +174,6 @@ header h2 {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     background-color: white;
 }
 
@@ -185,63 +181,98 @@ main {
     padding: 2rem;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    background-color: grey;
+h2 {
+    text-align: center;
     padding: 2rem;
-    margin-bottom: -1rem;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin-top: rem;
+}
+
+.container-fluid {
+    padding: 20px;
+    border-color: #fefffe;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.card {
+    border: 2px solid rgb(185, 185, 185);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 50rem;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img-square-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.img-square-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 a {
     text-decoration: none;
 }
 
-.container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.photo {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.photo img {
-    max-width: 100%;
-    height: auto;
-}
-
-.text {
+.card-body {
     flex: 2;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    padding: 20px;
 }
 
-.text p {
-    font-size: 18px;
-    color: #333;
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-footer {
+    background-color: #b9b9b9;
+    padding: 10px 20px;
+    text-align: right;
+}
+
+.text-muted {
+    font-size: 0.8rem;
+    color: #888;
 }
 
 @media (max-width: 768px) {
-    .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 768px;
-        margin-left: auto;
-        margin-right: auto;
-        margin: 1rem;
+    header {
+        height: 60vh;
     }
-}
-
-h2 {
-    text-align: center;
-    padding: 2rem;
-    margin-top: rem;
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header h2 {
+        font-size: 1rem;
+    }
+    .container-fluid {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .card {
+        width: 100%;
+    }
+    .card-horizontal {
+        flex-direction: column;
+    }
 }

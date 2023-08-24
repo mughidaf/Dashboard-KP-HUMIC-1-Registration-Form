@@ -1,9 +1,14 @@
+<< << << < Updated upstream
 const uploadContainer = document.querySelector(".upload-container");
 const fileInput = document.getElementById("file-input");
 const signatureCanvas = document.getElementById("signatureCanvas");
 const clearSignatureBtn = document.getElementById("clearSignatureBtn");
 const signatureCtx = signatureCanvas.getContext("2d");
-let isDrawing = false;
+let isDrawing = false; ===
+=== =
+const uploadContainer = document.querySelector('.upload-container');
+const fileInput = document.getElementById('file-input'); >>>
+>>> > Stashed changes
 
 uploadContainer.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -56,36 +61,145 @@ function displayFile(file) {
 
 //ttd
 
-function startPosition(e) {
-    isDrawing = true;
-    draw(e);
-}
+(function() {
+    window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimaitonFrame ||
+            function(callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+    })();
 
-function endPosition() {
-    isDrawing = false;
-    signatureCtx.beginPath();
-}
+    var canvas = document.getElementById("sig-canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.strokeStyle = "#222222";
+    ctx.lineWidth = 4;
 
-function draw(e) {
-    if (!isDrawing) return;
+    var drawing = false;
+    var mousePos = {
+        x: 0,
+        y: 0
+    };
+    var lastPos = mousePos;
 
-    const rect = signatureCanvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    canvas.addEventListener("mousedown", function(e) {
+        drawing = true;
+        lastPos = getMousePos(canvas, e);
+    }, false);
 
-    signatureCtx.lineWidth = 2;
-    signatureCtx.lineCap = "round";
-    signatureCtx.strokeStyle = "black";
+    canvas.addEventListener("mouseup", function(e) {
+        drawing = false;
+    }, false);
 
-    signatureCtx.lineTo(x, y);
-    signatureCtx.stroke();
-    signatureCtx.beginPath();
-    signatureCtx.moveTo(x, y);
-}
+    canvas.addEventListener("mousemove", function(e) {
+        mousePos = getMousePos(canvas, e);
+    }, false);
 
-signatureCanvas.addEventListener("mousedown", startPosition);
-signatureCanvas.addEventListener("mouseup", endPosition);
-signatureCanvas.addEventListener("mousemove", draw);
-clearSignatureBtn.addEventListener("click", () => {
-    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-});
+    signatureCanvas.addEventListener("mousedown", startPosition);
+    signatureCanvas.addEventListener("mouseup", endPosition);
+    signatureCanvas.addEventListener("mousemove", draw);
+    clearSignatureBtn.addEventListener("click", () => {
+        signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+    });
+    // Add touch event support for mobile
+    canvas.addEventListener("touchstart", function(e) {
+
+    }, false);
+
+    canvas.addEventListener("touchmove", function(e) {
+        var touch = e.touches[0];
+        var me = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(me);
+    }, false);
+
+    canvas.addEventListener("touchstart", function(e) {
+        mousePos = getTouchPos(canvas, e);
+        var touch = e.touches[0];
+        var me = new MouseEvent("mousedown", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+        });
+        canvas.dispatchEvent(me);
+    }, false);
+
+    canvas.addEventListener("touchend", function(e) {
+        var me = new MouseEvent("mouseup", {});
+        canvas.dispatchEvent(me);
+    }, false);
+
+    function getMousePos(canvasDom, mouseEvent) {
+        var rect = canvasDom.getBoundingClientRect();
+        return {
+            x: mouseEvent.clientX - rect.left,
+            y: mouseEvent.clientY - rect.top
+        }
+    }
+
+    function getTouchPos(canvasDom, touchEvent) {
+        var rect = canvasDom.getBoundingClientRect();
+        return {
+            x: touchEvent.touches[0].clientX - rect.left,
+            y: touchEvent.touches[0].clientY - rect.top
+        }
+    }
+
+    function renderCanvas() {
+        if (drawing) {
+            ctx.moveTo(lastPos.x, lastPos.y);
+            ctx.lineTo(mousePos.x, mousePos.y);
+            ctx.stroke();
+            lastPos = mousePos;
+        }
+    }
+
+    // Prevent scrolling when touching the canvas
+    document.body.addEventListener("touchstart", function(e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
+    document.body.addEventListener("touchend", function(e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
+    document.body.addEventListener("touchmove", function(e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
+
+    (function drawLoop() {
+        requestAnimFrame(drawLoop);
+        renderCanvas();
+    })();
+
+    function clearCanvas() {
+        canvas.width = canvas.width;
+    }
+
+    // Set up the UI
+    var sigText = document.getElementById("sig-dataUrl");
+    var sigImage = document.getElementById("sig-image");
+    var clearBtn = document.getElementById("sig-clearBtn");
+    var submitBtn = document.getElementById("sig-submitBtn");
+    clearBtn.addEventListener("click", function(e) {
+        clearCanvas();
+        sigText.innerHTML = "Data URL for your signature will go here!";
+        sigImage.setAttribute("src", "");
+    }, false);
+    submitBtn.addEventListener("click", function(e) {
+        var dataUrl = canvas.toDataURL();
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.value = dataUrl;
+
+        sigImage.setAttribute("src", dataUrl);
+    }, false);
+})();

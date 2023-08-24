@@ -50,17 +50,24 @@
     <main>
         <h2>News & Activity</h2>
         @foreach ($forms as $form)
-            
-        <div class="wrap-container">
+        <div class="container-fluid">
             <a href="/userForm/{{$form->id}}">
-                <div class="container">
-                    <div class="photo">
-                        <img src="/image/banner.jpeg" alt="Small Photo">
-                    </div>
-                    <div class="text">
-                        <p><strong>{{$form->judul}}</strong></p>
-                        <br>
-                        <p>{{$form->deskripsi}}</p>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card">
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="" src="/image/banner.jpeg" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title" style="color: black">{{$form->judul}}</h4>
+                                    <p class="card-text">{{$form->deskripsi}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last updated 5 mins ago</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </a>
