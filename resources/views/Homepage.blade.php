@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">Last updated 5 mins ago</small>
+                                <small class="text-muted">Created {{ \Carbon\Carbon::parse($form->created_at)->diffForHumans() }}</small>
                             </div>
                         </div>
                     </div>

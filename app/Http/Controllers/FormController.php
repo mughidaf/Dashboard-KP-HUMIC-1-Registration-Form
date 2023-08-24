@@ -52,13 +52,15 @@ class FormController extends Controller
             }
         }
 
+        return redirect('/')->with('status', 'Data berhasil disimpan.');
+
 
      }
     
     public function index()
     {
         //
-        $forms = Form::all();
+        $forms = Form::latest()->get();
 
         return(view('Homepage',['forms' => $forms]));
     }
