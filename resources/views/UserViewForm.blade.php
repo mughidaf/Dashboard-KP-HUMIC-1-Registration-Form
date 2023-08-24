@@ -82,28 +82,28 @@
                         @endforeach
                     </div>
                     @endif
-                
-                
+
+                    @if ($tanya->type == 'ttd')
+                        
                     <div class="form-container">
                         <!-- Content -->
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1>E-Signature</h1>
-                                    <p>Sign in the canvas below and save your signature as an image!</p>
+                                    <p>{{$tanya->question}}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <canvas id="sig-canvas" width="620" height="160">
-                             Get a better browser, bro.
-                         </canvas>
+                                        Get a better browser, bro.
+                                    </canvas>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
-                                    <button class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
+                                    <button type="button" class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
+                                    <button type="button" class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
                                 </div>
                             </div>
                             <br/>
@@ -115,9 +115,10 @@
                             <br/>
                         </div>
                     </div>
-                @endforeach
-                <button id="submitBtn">Submit</button>
-            </form>
+                    @endif
+                    @endforeach
+                    <button type="submit" id="submitBtn">Submit</button>
+                </form>
         </div>
 
     </main>
