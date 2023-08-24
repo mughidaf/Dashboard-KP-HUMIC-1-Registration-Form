@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Maker</title>
     <link rel="stylesheet" href="/UserViewForm.css" />
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   </head>
   <body>
@@ -24,8 +23,7 @@
                     </p>
                     </div>
             </div>
-            <form id="formCreator" action="storeForm" method="post">
-            @csrf
+            <form action="" method="post"></form>
 
                     <div class="form-container">
                         <div class="-mx-4 flex flex-wrap">
@@ -118,7 +116,7 @@
 
     </main>
     <script src="/script.js"></script>
-    <script src="/UserViewForm.js"></script>
+    <script src="/test.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>

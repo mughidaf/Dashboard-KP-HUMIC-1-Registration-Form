@@ -82,47 +82,40 @@
                         @endforeach
                     </div>
                     @endif
-                @endforeach
                 
-                <div class="form-container">
-                    <label class="mb-3 block text-base font-medium text-black">
-                        Name
-                        </label>
-                        <h4 style="color: red;">*</h4>
-                    <div class="status">
-                        <div class="signature-container">
-                            <canvas id="signatureCanvas" width="600" height="150"></canvas>
-                            <button id="clearSignatureBtn">Clear Signature</button>
-                        </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Sign in the canvas below and save your signature</p>
+                
+                    <div class="form-container">
+                        <!-- Content -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>E-Signature</h1>
+                                    <p>Sign in the canvas below and save your signature as an image!</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <canvas id="sig-canvas" width="620" height="160">
-                                    Get a better browser, bro.
-                                </canvas>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas id="sig-canvas" width="620" height="160">
+                             Get a better browser, bro.
+                         </canvas>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="hidden" id="signatureDataUrl" name="signatureDataUrl">
-                                <button class="btn btn-primary" id="sig-submitBtn"">Submit Signature</button>
-                                <button class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
+                                    <button class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <textarea id="sig-dataUrl" class="form-control" rows="5">Data URL</textarea>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea id="sig-dataUrl" class="form-control" rows="5">Data URL for your signature will go here!</textarea>
+                                </div>
                             </div>
+                            <br/>
                         </div>
-                        <br/>
                     </div>
-                </div>
+                @endforeach
                 <button id="submitBtn">Submit</button>
             </form>
         </div>
