@@ -30,6 +30,7 @@ main {
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 .main h1 {
@@ -277,4 +278,19 @@ input[type="text"],
     border: 2px dotted #CCCCCC;
     border-radius: 15px;
     cursor: crosshair;
+}
+
+.edit-button,
+.delete-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.delete-button {
+    background-color: #f44336;
 }

@@ -5,6 +5,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -47,17 +48,22 @@ input[type="text"],
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Memastikan lebar elemen tidak melebar */
+    box-sizing: border-box;
+    /* Memastikan lebar elemen tidak melebar */
 }
 
+
 /* Mengatur ukuran minimal textarea agar tidak terlalu pendek */
+
 textarea {
     min-height: 100px;
 }
 
 .upload-file {
-    border: 1px solid grey; /* Atur ukuran dan warna border sesuai kebutuhan */
-    text-align: center; /* Agar teks berada di tengah tombol */
+    border: 1px solid grey;
+    /* Atur ukuran dan warna border sesuai kebutuhan */
+    text-align: center;
+    /* Agar teks berada di tengah tombol */
     padding-bottom: 10px;
     background-color: white;
     color: grey;
@@ -89,7 +95,8 @@ button {
 }
 
 .button-container button:first-child {
-    background-color: #666; /* Warna abu-abu untuk tombol Cancel */
+    background-color: #666;
+    /* Warna abu-abu untuk tombol Cancel */
 }
 
 .jawaban {
@@ -100,7 +107,9 @@ button {
     margin-left: 5px;
 }
 
+
 /* Gaya tampilan tanda centang kustom */
+
 .custom-checkbox {
     display: inline-block;
     width: 16px;
@@ -111,14 +120,18 @@ button {
     margin-right: 5px;
 }
 
+
 /* Gaya tampilan wrapper opsi */
+
 .option-wrapper {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
+
 /* Gaya tampilan wrapper opsi ketika dipilih */
+
 .option-wrapper.selected .custom-checkbox {
     background-color: #007bff;
     border-color: #007bff;
@@ -126,4 +139,20 @@ button {
 
 .dropdpown .btn {
     background-color: #ff5555;
+}
+
+.input-judul {
+    position: relative;
+}
+
+.upload-icon {
+    position: absolute;
+    right: 8px;
+    top: 45px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.upload-icon i {
+    font-family: 'FontAwesome';
 }

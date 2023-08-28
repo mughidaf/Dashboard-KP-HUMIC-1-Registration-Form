@@ -7,7 +7,7 @@ const tempat = document.querySelector(".form-container");
 
 let counter = 0;
 
-teksButton.addEventListener("click", function () {
+teksButton.addEventListener("click", function() {
     counter++;
     // Buat elemen div dengan class "question-group"
     const questionGroup = document.createElement("div");
@@ -59,7 +59,7 @@ teksButton.addEventListener("click", function () {
     tempat.insertBefore(questionGroup, tombol);
 
     // Menambahkan event listener untuk tombol "Remove"
-    removeButton.addEventListener("click", function (e) {
+    removeButton.addEventListener("click", function(e) {
         const parentGroup = e.target.closest(".question-group");
         if (parentGroup) {
             parentGroup.remove();
@@ -67,7 +67,7 @@ teksButton.addEventListener("click", function () {
     });
 });
 
-choiceButton.addEventListener("click", function () {
+choiceButton.addEventListener("click", function() {
     counter++;
     // Buat elemen div dengan class "question-group"
     const questionGroup = document.createElement("div");
@@ -162,7 +162,7 @@ choiceButton.addEventListener("click", function () {
     tempat.insertBefore(questionGroup, tombol);
 
     // Menambahkan event listener untuk tombol "Remove"
-    removeButton.addEventListener("click", function (e) {
+    removeButton.addEventListener("click", function(e) {
         const parentGroup = e.target.closest(".question-group");
         if (parentGroup) {
             parentGroup.remove();
@@ -170,16 +170,16 @@ choiceButton.addEventListener("click", function () {
     });
 
     const ngapus = document.querySelectorAll(".hapus-opsi");
-    ngapus.forEach(function (el) {
-        el.addEventListener("click", function (e) {
+    ngapus.forEach(function(el) {
+        el.addEventListener("click", function(e) {
             const dihapus = e.target.parentNode;
             e.target.parentElement.parentElement.removeChild(dihapus);
         });
     });
 
     const nambah = document.querySelectorAll(".tambah-opsi");
-    nambah.forEach(function (el) {
-        el.addEventListener("click", function (e) {
+    nambah.forEach(function(el) {
+        el.addEventListener("click", function(e) {
             const tempatnya = e.target.parentNode;
             const bungkus = e.target.parentElement.parentNode;
             const isiVal = e.target.parentElement.previousSibling.querySelector(
@@ -220,8 +220,8 @@ choiceButton.addEventListener("click", function () {
             bungkus.insertBefore(opsiJawabanDiv, tempatnya);
 
             const ngapus = document.querySelectorAll(".hapus-opsi");
-            ngapus.forEach(function (el) {
-                el.addEventListener("click", function (e) {
+            ngapus.forEach(function(el) {
+                el.addEventListener("click", function(e) {
                     const dihapus = e.target.parentNode;
                     e.target.parentElement.parentElement.removeChild(dihapus);
                 });
@@ -230,7 +230,7 @@ choiceButton.addEventListener("click", function () {
     });
 });
 
-fileButton.addEventListener("click", function () {
+fileButton.addEventListener("click", function() {
     counter++;
     // Buat elemen div dengan class "question-group"
     const questionGroup = document.createElement("div");
@@ -281,7 +281,7 @@ fileButton.addEventListener("click", function () {
     tempat.insertBefore(questionGroup, tombol);
 
     // Menambahkan event listener untuk tombol "Remove"
-    removeButton.addEventListener("click", function (e) {
+    removeButton.addEventListener("click", function(e) {
         const parentGroup = e.target.closest(".question-group");
         if (parentGroup) {
             parentGroup.remove();
@@ -289,7 +289,7 @@ fileButton.addEventListener("click", function () {
     });
 });
 
-signButton.addEventListener("click", function () {
+signButton.addEventListener("click", function() {
     counter++;
     // Buat elemen div dengan class "question-group"
     const questionGroup = document.createElement("div");
@@ -341,7 +341,7 @@ signButton.addEventListener("click", function () {
     tempat.insertBefore(questionGroup, tombol);
 
     // Menambahkan event listener untuk tombol "Remove"
-    removeButton.addEventListener("click", function (e) {
+    removeButton.addEventListener("click", function(e) {
         const parentGroup = e.target.closest(".question-group");
         if (parentGroup) {
             parentGroup.remove();

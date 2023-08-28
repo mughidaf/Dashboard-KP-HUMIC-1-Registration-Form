@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Maker</title>
     <link rel="stylesheet" href="/UserViewForm.css" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   </head>
   <body>
@@ -31,20 +31,27 @@
                     <div class="form-container">
                         <div class="-mx-4 flex flex-wrap">
                             <div class="w-full">
-                               <div class="mb-12">
-                                  <label class="mb-3 block text-base font-medium text-black">
-                                  {{$tanya->question}}
-                                  </label>
-                                  <h4 style="color: red;">*</h4>
-                                  <div class="relative">
-                                     <input type="text" placeholder={{$tanya->question}} class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
-                                     <span class="absolute top-1/2 left-4 -translate-y-1/2">
-                                     </span>
-                                  </div>
-                               </div>
+                                <div class="mb-12">
+                                    <label class="mb-3 block text-base font-medium text-black">
+                                        {{$tanya->question}}
+                                    </label>
+                                    <h4 style="color: red;">*</h4>
+                                    <button class="edit-button">Edit</button>
+                                    <button class="delete-button">Delete</button>
+                                    <div class="relative">
+                                        <input type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                        <span class="absolute top-1/2 left-4 -translate-y-1/2"></span>
+                                    </div>
+                                </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
+                    
+                    
+                    
+                    
+                    
+                    
                     @endif
 
                     @if ($tanya->type == 'file')
@@ -54,6 +61,8 @@
                             {{$tanya->question}}
                         </label>
                         <h4 style="color: red;">*</h4>
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
                         <div class="upload-container">
                             <div class="upload-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -72,6 +81,8 @@
                     <div class="form-container">
                         <label class="label">{{$tanya->question}}</label>
                         <h4 style="color: red;">*</h4>
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
                         @foreach ($tanya->Options as $opsi)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -88,11 +99,10 @@
                     <div class="form-container">
                         <!-- Content -->
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>{{$tanya->question}}</p>
-                                </div>
-                            </div>
+                            <label class="label">{{$tanya->question}}</label>
+                        <h4 style="color: red;">*</h4>
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
                             <div class="row">
                                 <div class="col-md-12">
                                     <canvas id="sig-canvas" width="620" height="160">

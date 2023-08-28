@@ -187,5 +187,4 @@ function displayFile(file) {
         sigText.innerHTML = dataUrl;
         sigImage.setAttribute("src", dataUrl);
     }, false);
-
 })();

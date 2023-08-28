@@ -177,15 +177,21 @@ function displayFile(file) {
     var sigImage = document.getElementById("sig-image");
     var clearBtn = document.getElementById("sig-clearBtn");
     var submitBtn = document.getElementById("sig-submitBtn");
+
     clearBtn.addEventListener("click", function(e) {
         clearCanvas();
         sigText.innerHTML = "Data URL for your signature will go here!";
         sigImage.setAttribute("src", "");
     }, false);
+
+    // Attach the submitSignature function to the hidden button's click event
     submitBtn.addEventListener("click", function(e) {
         var dataUrl = canvas.toDataURL();
-        sigText.innerHTML = dataUrl;
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = "signatureDataUrl";
+        hiddenInput.value = dataUrl;
+
         sigImage.setAttribute("src", dataUrl);
     }, false);
-
-})();
+})();;
