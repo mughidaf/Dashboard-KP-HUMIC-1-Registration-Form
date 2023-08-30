@@ -17,6 +17,8 @@ class FormController extends Controller
      */
 
      public function store(Request $request){
+
+        dd($request);
          $judul = $request->judul;
          $deskripsi = $request->deskripsi;
          $pertanyaan = $request->pertanyaan;

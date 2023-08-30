@@ -18,7 +18,7 @@
           @csrf
           <div class="form-container">
             <div class="input-judul">
-              <input type="file" id="fileInput" name="fileInput" style="display: none;">
+              <input type="file" id="fileInput" name="gambar" style="display: none;">
               <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
               <label for="judul">Judul Form:</label>
               <input type="text" id="judul" name="judul">
