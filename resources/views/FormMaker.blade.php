@@ -22,8 +22,9 @@
               <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
               <label for="judul">Judul Form:</label>
               <input type="text" id="judul" name="judul">
-            </div>
-
+              <img id="imagePreview" src="#" style="max-width: 300x; max-height: 300px;">
+          </div>
+          
             <label for="deskripsi">Deskripsi:</label>
             <textarea class="deskripsi" id="deskripsi" name="deskripsi" rows="3" required></textarea>
 

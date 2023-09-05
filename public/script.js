@@ -5,6 +5,41 @@ const signButton = document.getElementById("tambah-ttd");
 const tombol = document.querySelector(".dropdown");
 const tempat = document.querySelector(".form-container");
 
+//cekin
+fileInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        displayFile(file);
+        if (file.type.startsWith("image/")) {
+            displayImagePreview(file);
+        }
+    }
+});
+
+// preview file apa yang di upload dengan <p>
+function displayFile(file) {
+    const uploadText = document.querySelector(".input-judul");
+    const fileDisplay = document.createElement("p");
+    fileDisplay.textContent = `Selected file is : ${file.name}`;
+
+    if (uploadText.children.length > 1) {
+        uploadText.removeChild(uploadText.lastChild);
+    }
+
+    uploadText.appendChild(fileDisplay);
+}
+// image preview
+function displayImagePreview(file) {
+    const imagePreview = document.getElementById("imagePreview");
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        imagePreview.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
 let counter = 0;
 
 teksButton.addEventListener("click", function() {
@@ -347,4 +382,6 @@ signButton.addEventListener("click", function() {
             parentGroup.remove();
         }
     });
+
+
 });
