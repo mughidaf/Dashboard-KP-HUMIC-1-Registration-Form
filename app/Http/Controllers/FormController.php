@@ -18,43 +18,44 @@ class FormController extends Controller
 
      public function store(Request $request){
 
-        dd($request);
-         $judul = $request->judul;
-         $deskripsi = $request->deskripsi;
-         $pertanyaan = $request->pertanyaan;
-         $rujukan = $request->rujukan;
-         $tipe = $request->tipe;
-         $tanda = $request->input("tanda-opsi");
-         $opsi = $request->opsi;
+        return $request->file('gambar')->store('post-images');
+        // dd($request->file('gambar'));
+        //  $judul = $request->judul;
+        //  $deskripsi = $request->deskripsi;
+        //  $pertanyaan = $request->pertanyaan;
+        //  $rujukan = $request->rujukan;
+        //  $tipe = $request->tipe;
+        //  $tanda = $request->input("tanda-opsi");
+        //  $opsi = $request->opsi;
 
-        Form::create([
-            'judul' => $judul,
-            'deskripsi' => $deskripsi
-        ]);
+        // Form::create([
+        //     'judul' => $judul,
+        //     'deskripsi' => $deskripsi
+        // ]);
 
-        $formID = Form::latest()->first()->id;
-        for ($i = 0; $i < count($pertanyaan);$i++){
-            FormQuestion::create([
-                'formID' => $formID,
-                'question' => $pertanyaan[$i],
-                'type' => $tipe[$i]
-            ]);
+        // $formID = Form::latest()->first()->id;
+        // for ($i = 0; $i < count($pertanyaan);$i++){
+        //     FormQuestion::create([
+        //         'formID' => $formID,
+        //         'question' => $pertanyaan[$i],
+        //         'type' => $tipe[$i]
+        //     ]);
 
-            $mark = $rujukan[$i];
-            if ($tipe[$i] == 'choice'){
-                for ($j = 0; $j < count($opsi); $j++ ){
-                    if($tanda[$j] == $mark){
-                        $questionID = FormQuestion::where('question', $pertanyaan[$i])->latest()->first()->id;
-                        FormOption::create([
-                            'questionID' => $questionID,
-                            'option' => $opsi[$j]
-                        ]);
-                    }
-                }
-            }
-        }
+        //     $mark = $rujukan[$i];
+        //     if ($tipe[$i] == 'choice'){
+        //         for ($j = 0; $j < count($opsi); $j++ ){
+        //             if($tanda[$j] == $mark){
+        //                 $questionID = FormQuestion::where('question', $pertanyaan[$i])->latest()->first()->id;
+        //                 FormOption::create([
+        //                     'questionID' => $questionID,
+        //                     'option' => $opsi[$j]
+        //                 ]);
+        //             }
+        //         }
+        //     }
+        // }
 
-        return redirect('/')->with('status', 'Data berhasil disimpan.');
+        // return redirect('/')->with('status', 'Data berhasil disimpan.');
 
 
      }
