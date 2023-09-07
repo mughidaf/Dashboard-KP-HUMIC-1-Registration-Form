@@ -21,7 +21,7 @@
               <input type="file" id="fileInput" name="gambar" accept=".png,.jpg,.jpeg" style="display: none;">
               <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
               <label for="judul">Judul Form:</label>
-              <input type="text" id="judul" name="judul">
+              <input type="text" id="judul" name="judul" required>
               <img id="imagePreview" src="#" style="max-width: 300x; max-height: 300px;">
           </div>
           
