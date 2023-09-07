@@ -14,7 +14,7 @@
     </header>
     <main>
       <div class="container">
-        <form id="formCreator" action="storeForm" method="post">
+        <form id="formCreator" action="storeForm" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-container">
             <div class="input-judul">
