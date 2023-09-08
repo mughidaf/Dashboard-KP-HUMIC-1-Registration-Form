@@ -36,8 +36,6 @@
                                         {{$tanya->question}}
                                     </label>
                                     <h4 style="color: red;">*</h4>
-                                    <button class="edit-button">Edit</button>
-                                    <button class="delete-button">Delete</button>
                                     <div class="relative">
                                         <input type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
                                         <span class="absolute top-1/2 left-4 -translate-y-1/2"></span>
@@ -61,8 +59,6 @@
                             {{$tanya->question}}
                         </label>
                         <h4 style="color: red;">*</h4>
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
                         <div class="upload-container">
                             <div class="upload-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -81,8 +77,6 @@
                     <div class="form-container">
                         <label class="label">{{$tanya->question}}</label>
                         <h4 style="color: red;">*</h4>
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
                         @foreach ($tanya->Options as $opsi)
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -101,8 +95,8 @@
                         <div class="container">
                             <label class="label">{{$tanya->question}}</label>
                         <h4 style="color: red;">*</h4>
-                        <button class="edit-button">Edit</button>
-                        <button class="delete-button">Delete</button>
+                        {{-- <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button> --}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <canvas id="sig-canvas" width="620" height="160">
