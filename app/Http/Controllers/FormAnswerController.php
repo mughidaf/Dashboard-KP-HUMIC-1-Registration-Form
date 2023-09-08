@@ -6,6 +6,7 @@ use App\Models\FormAnswer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFormAnswerRequest;
 use App\Http\Requests\UpdateFormAnswerRequest;
+use Symfony\Component\HttpFoundation\Request;
 
 class FormAnswerController extends Controller
 {
@@ -28,9 +29,9 @@ class FormAnswerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFormAnswerRequest $request)
+    public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

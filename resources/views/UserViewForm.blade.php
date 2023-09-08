@@ -24,7 +24,7 @@
                     </p>
                     </div>
             </div>
-            <form id="formCreator" action="storeForm" method="post">
+            <form id="formCreator" action="/storeAnswer" method="post">
             @csrf
                 @foreach ($form->Questions as $tanya)
                     @if ($tanya->type == 'teks')
@@ -37,18 +37,13 @@
                                     </label>
                                     <h4 style="color: red;">*</h4>
                                     <div class="relative">
-                                        <input type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                        <input name="jawaban[]" type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
                                         <span class="absolute top-1/2 left-4 -translate-y-1/2"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
                     
                     @endif
 
@@ -67,25 +62,25 @@
                                 <p>Drag and drop your files here or</p>
                                 <label for="file-input" class="custom-btn">Browse</label>
                                 {{-- accep tipe file nya --}}
-                                <input type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
+                                <input name="jawaban[]" type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
                             </div>
                         </div>
                     </div>
                     @endif
 
                     @if ($tanya->type == 'choice')
-                    <div class="form-container">
-                        <label class="label">{{$tanya->question}}</label>
-                        <h4 style="color: red;">*</h4>
-                        @foreach ($tanya->Options as $opsi)
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              {{$opsi->option}}
-                            </label>
-                          </div>
-                        @endforeach
-                    </div>
+                        <div class="form-container">
+                            <label class="label">{{$tanya->question}}</label>
+                            <h4 style="color: red;">*</h4>
+                            @foreach ($tanya->Options as $opsi)
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jawaban[]" id="flexRadioDefault1">
+                                <label class="form-check-label" for="jawaban[]">
+                                    {{$opsi->option}}
+                                </label>
+                            </div>
+                            @endforeach
+                        </div>
                     @endif
 
                     @if ($tanya->type == 'ttd')

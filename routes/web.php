@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormAnswerController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormQuestionController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::get('/formMaker', function () {
 });
 
 Route::post('/storeForm', [FormController::class,'store']);
+Route::post('/storeAnswer', [FormAnswerController::class,'store']);
 
 Route::get('/ResponsePage', function () {
     return view('ResponsePage');
