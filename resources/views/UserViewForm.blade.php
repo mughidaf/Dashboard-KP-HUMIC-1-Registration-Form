@@ -74,7 +74,7 @@
                             <h4 style="color: red;">*</h4>
                             @foreach ($tanya->Options as $opsi)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jawaban[]" id="flexRadioDefault1">
+                                <input value="{{$opsi->option}}" class="form-check-input" type="radio" name="jawaban[]" id="flexRadioDefault1">
                                 <label class="form-check-label" for="jawaban[]">
                                     {{$opsi->option}}
                                 </label>
