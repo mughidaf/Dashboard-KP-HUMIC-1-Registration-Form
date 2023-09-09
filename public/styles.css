@@ -20,7 +20,7 @@ header {
 }
 
 main {
-    max-width: 800px;
+    max-width: 100;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -155,4 +155,17 @@ button {
 
 .upload-icon i {
     font-family: 'FontAwesome';
+}
+
+.layout {
+    width: auto;
+    display: grid;
+    grid: "sidebar body" auto / 50%;
+    gap: 8px;
+    padding: 20px;
+}
+
+.divider {
+    border-left: 2px solid rgb(48, 48, 104);
+    height: 100%;
 }

@@ -12,40 +12,52 @@
     <header>
       <h1>Form Maker</h1>
     </header>
-    <main>
-      <div class="container">
-        <form id="formCreator" action="storeForm" method="post" enctype="multipart/form-data">
-          @csrf
-          <div class="form-container">
-            <div class="input-judul">
-              <input type="file" id="fileInput" name="gambar" accept=".png,.jpg,.jpeg" style="display: none;">
-              <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
-              <label for="judul">Judul Form:</label>
-              <input type="text" id="judul" name="judul" required>
-              <img id="imagePreview" src="#" style="max-width: 300x; max-height: 300px;">
+      <section class="layout">
+        <div class="Split1">
+          <div class="container">
+            <form id="formCreator" action="storeForm" method="post" enctype="multipart/form-data">
+              @csrf
+              <div class="form-container">
+                <div class="input-judul">
+                  <input type="file" id="fileInput" name="gambar" accept=".png,.jpg,.jpeg" style="display: none;">
+                    <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
+                    <label for="judul">Judul Form:</label>
+                    <input type="text" id="judul" name="judul" required>
+                    <img id="imagePreview" src="#" style="max-width: 300x; max-height: 300px;">
+                </div>
+              
+                <label for="deskripsi">Deskripsi:</label>
+                <textarea class="deskripsi" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+    
+                <div class="dropdown">
+                  <button class="dropdown-toggle" type="button" id="tambah-pertanyaan" data-bs-toggle="dropdown" aria-expanded="false">Tambah pertanyaan</button>
+                  <ul class="dropdown-menu" aria-labelledby="tambah-pertanyaan">
+                    <li><button type="button" class="d-block w-100 mb-1" id="tambah-teks">Teks</button></li>
+                    <li><button type="button" class="d-block w-100 mb-1" id="tambah-pilihan">Choice</button></li>
+                    <li><button type="button" class="d-block w-100 mb-1" id="tambah-file">File</button></li>
+                    <li><button type="button" class="d-block w-100" id="tambah-ttd">Sign</button></li>
+                  </ul>
+                </div>
+    
+                <div class="button-container">
+                  <button type="button" id="cancelForm">Cancel</button>
+                  <button type="submit" id="submitForm">Simpan</button>
+                </div>
+              </div>
+            </form>
           </div>
-          
-            <label for="deskripsi">Deskripsi:</label>
-            <textarea class="deskripsi" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+        </div>
 
-            <div class="dropdown">
-              <button class="dropdown-toggle" type="button" id="tambah-pertanyaan" data-bs-toggle="dropdown" aria-expanded="false">Tambah pertanyaan</button>
-              <ul class="dropdown-menu" aria-labelledby="tambah-pertanyaan">
-                <li><button type="button" class="d-block w-100 mb-1" id="tambah-teks">Teks</button></li>
-                <li><button type="button" class="d-block w-100 mb-1" id="tambah-pilihan">Choice</button></li>
-                <li><button type="button" class="d-block w-100 mb-1" id="tambah-file">File</button></li>
-                <li><button type="button" class="d-block w-100" id="tambah-ttd">Sign</button></li>
-              </ul>
-            </div>
+        {{-- Pemisah split scxreen --}}
+        <div class="divider"></div>
 
-            <div class="button-container">
-              <button type="button" id="cancelForm">Cancel</button>
-              <button type="submit" id="submitForm">Simpan</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </main>
+        <div class="Split2">
+
+        </div>
+      </section>
+
+
+
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 
     <script src="/script.js"></script>
