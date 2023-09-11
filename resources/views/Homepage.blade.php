@@ -57,7 +57,7 @@
                         <div class="card">
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <img class="" src="/image/banner.jpeg" alt="Card image cap">
+                                    <img class="" src="storage/{{$form->gambar}}" alt="Card image cap">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title" style="color: black">{{$form->judul}}</h4>

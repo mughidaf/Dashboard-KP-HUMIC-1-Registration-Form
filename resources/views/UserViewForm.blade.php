@@ -24,7 +24,7 @@
                     </p>
                     </div>
             </div>
-            <form id="formCreator" action="/storeAnswer" method="post">
+            <form id="formCreator" action="/storeAnswer" method="post" enctype="multipart/form-data">
             @csrf
                 @foreach ($form->Questions as $tanya)
                     @if ($tanya->type == 'teks')
@@ -37,7 +37,7 @@
                                     </label>
                                     <h4 style="color: red;">*</h4>
                                     <div class="relative">
-                                        <input name="jawaban[]" type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                        <input name={{$tanya->id}} type="text" placeholder="{{$tanya->question}}" class="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
                                         <span class="absolute top-1/2 left-4 -translate-y-1/2"></span>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                 <p>Drag and drop your files here or</p>
                                 <label for="file-input" class="custom-btn">Browse</label>
                                 {{-- accep tipe file nya --}}
-                                <input name="jawaban[]" type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
+                                <input name="{{$tanya->id}}" type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
                             </div>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
                             <h4 style="color: red;">*</h4>
                             @foreach ($tanya->Options as $opsi)
                             <div class="form-check">
-                                <input value="{{$opsi->option}}" class="form-check-input" type="radio" name="jawaban[]" id="flexRadioDefault1">
-                                <label class="form-check-label" for="jawaban[]">
+                                <input value="{{$opsi->option}}" class="form-check-input" type="radio" name="{{$tanya->id}}" id="flexRadioDefault1">
+                                <label class="form-check-label" for="{{$tanya->id}}">
                                     {{$opsi->option}}
                                 </label>
                             </div>
