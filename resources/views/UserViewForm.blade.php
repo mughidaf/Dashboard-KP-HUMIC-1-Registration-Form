@@ -101,6 +101,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+                                    <input type="hidden" value="{{$tanya->id}}" name="rujukan">
                                     <button type="button" class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
                                     <button type="button" class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
                                 </div>
