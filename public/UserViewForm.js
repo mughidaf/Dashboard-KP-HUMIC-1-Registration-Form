@@ -223,17 +223,21 @@ function displayFile(file) {
         "click",
         function (e) {
             var dataUrl = canvas.toDataURL();
-            const hiddenInput = document.createElement("input");
-            hiddenInput.type = "hidden";
-            hiddenInput.name = e.target.parentElement.querySelector(
-                'input[name="rujukan"]'
-            ).value;
-            hiddenInput.value = dataUrl;
-            sigText.innerHTML = dataUrl;
-            sigImage.setAttribute("src", dataUrl);
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = document.querySelector('input[name="rujukan"]').value;
+        hiddenInput.value = dataUrl
+        sigText.innerHTML = dataUrl;
+        //sigImage.setAttribute("src", dataUrl);
 
-            // Menambahkan hidden input di bawah tombol sig-clearBtn
-            e.parentElement.appendChild(hiddenInput);
+        // Menambahkan hidden input di bawah tombol sig-clearBtn
+        clearBtn.parentNode.insertBefore(hiddenInput, clearBtn.nextSibling);
+
+        // Menghapus input dengan nama "rujukan"
+        var existingRujukanInput = document.querySelector('input[name="rujukan"]');
+        if (existingRujukanInput) {
+            existingRujukanInput.parentNode.removeChild(existingRujukanInput);
+        }
         },
         false
     );
