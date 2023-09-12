@@ -222,17 +222,25 @@ function displayFile(file) {
     submitBtn.addEventListener(
         "click",
         function (e) {
-            var dataUrl = canvas.toDataURL();
-        const hiddenInput = document.createElement("input");
-        hiddenInput.type = "hidden";
-        hiddenInput.name = document.querySelector('input[name="rujukan"]').value;
-        hiddenInput.value = dataUrl
-        sigText.innerHTML = dataUrl;
-        //sigImage.setAttribute("src", dataUrl);
+        var dataUrl = canvas.toDataURL();
 
+        var blob = dataURLtoBlob(dataUrl);
+
+        var file = new File([blob], "gambar.png", { type: "image/png" });
+
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "file";
+        hiddenInput.name = document.querySelector('input[name="rujukan"]').value;
+        // hiddenInput.value = dataUrl
+        hiddenInput.style.display = "none";
+        
+        // sigText.innerHTML = dataUrl;
+        //sigImage.setAttribute("src", dataUrl);
+        
         // Menambahkan hidden input di bawah tombol sig-clearBtn
         clearBtn.parentNode.insertBefore(hiddenInput, clearBtn.nextSibling);
-
+        
+        hiddenInput.files = [file];
         // Menghapus input dengan nama "rujukan"
         var existingRujukanInput = document.querySelector('input[name="rujukan"]');
         if (existingRujukanInput) {
@@ -241,4 +249,14 @@ function displayFile(file) {
         },
         false
     );
+
+    // Fungsi untuk mengonversi data URL menjadi blob
+    function dataURLtoBlob(dataUrl) {
+        var binary = atob(dataUrl.split(',')[1]);
+        var array = [];
+        for (var i = 0; i < binary.length; i++) {
+            array.push(binary.charCodeAt(i));
+        }
+        return new Blob([new Uint8Array(array)], { type: 'image/png' });
+    }
 })();

@@ -109,7 +109,7 @@
                             <br/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <textarea id="sig-dataUrl" class="form-control" rows="5">Data URL for your signature will go here!</textarea>
+                                    {{-- <textarea id="sig-dataUrl" class="form-control" rows="5">Data URL for your signature will go here!</textarea> --}}
                                 </div>
                             </div>
                             <br/>
