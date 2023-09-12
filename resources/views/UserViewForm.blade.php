@@ -110,6 +110,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {{-- <textarea id="sig-dataUrl" class="form-control" rows="5">Data URL for your signature will go here!</textarea> --}}
+                                    <img id="sig-image" src="" {{--style="visibility: hidden" --}} />
                                 </div>
                             </div>
                             <br/>

@@ -52,15 +52,15 @@ function displayFile(file) {
 
 //ttd
 
-(function () {
-    window.requestAnimFrame = (function (callback) {
+(function() {
+    window.requestAnimFrame = (function(callback) {
         return (
             window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimaitonFrame ||
-            function (callback) {
+            function(callback) {
                 window.setTimeout(callback, 1000 / 60);
             }
         );
@@ -80,7 +80,7 @@ function displayFile(file) {
 
     canvas.addEventListener(
         "mousedown",
-        function (e) {
+        function(e) {
             drawing = true;
             lastPos = getMousePos(canvas, e);
         },
@@ -89,7 +89,7 @@ function displayFile(file) {
 
     canvas.addEventListener(
         "mouseup",
-        function (e) {
+        function(e) {
             drawing = false;
         },
         false
@@ -97,18 +97,18 @@ function displayFile(file) {
 
     canvas.addEventListener(
         "mousemove",
-        function (e) {
+        function(e) {
             mousePos = getMousePos(canvas, e);
         },
         false
     );
 
     // Add touch event support for mobile
-    canvas.addEventListener("touchstart", function (e) {}, false);
+    canvas.addEventListener("touchstart", function(e) {}, false);
 
     canvas.addEventListener(
         "touchmove",
-        function (e) {
+        function(e) {
             var touch = e.touches[0];
             var me = new MouseEvent("mousemove", {
                 clientX: touch.clientX,
@@ -121,7 +121,7 @@ function displayFile(file) {
 
     canvas.addEventListener(
         "touchstart",
-        function (e) {
+        function(e) {
             mousePos = getTouchPos(canvas, e);
             var touch = e.touches[0];
             var me = new MouseEvent("mousedown", {
@@ -135,7 +135,7 @@ function displayFile(file) {
 
     canvas.addEventListener(
         "touchend",
-        function (e) {
+        function(e) {
             var me = new MouseEvent("mouseup", {});
             canvas.dispatchEvent(me);
         },
@@ -170,7 +170,7 @@ function displayFile(file) {
     // Prevent scrolling when touching the canvas
     document.body.addEventListener(
         "touchstart",
-        function (e) {
+        function(e) {
             if (e.target == canvas) {
                 e.preventDefault();
             }
@@ -179,7 +179,7 @@ function displayFile(file) {
     );
     document.body.addEventListener(
         "touchend",
-        function (e) {
+        function(e) {
             if (e.target == canvas) {
                 e.preventDefault();
             }
@@ -188,7 +188,7 @@ function displayFile(file) {
     );
     document.body.addEventListener(
         "touchmove",
-        function (e) {
+        function(e) {
             if (e.target == canvas) {
                 e.preventDefault();
             }
@@ -205,6 +205,7 @@ function displayFile(file) {
         canvas.width = canvas.width;
     }
 
+
     // Set up the UI
     var sigText = document.getElementById("sig-dataUrl");
     var sigImage = document.getElementById("sig-image");
@@ -212,7 +213,7 @@ function displayFile(file) {
     var submitBtn = document.getElementById("sig-submitBtn");
     clearBtn.addEventListener(
         "click",
-        function (e) {
+        function(e) {
             clearCanvas();
             sigText.innerHTML = "Data URL for your signature will go here!";
             sigImage.setAttribute("src", "");
@@ -221,42 +222,36 @@ function displayFile(file) {
     );
     submitBtn.addEventListener(
         "click",
-        function (e) {
-        var dataUrl = canvas.toDataURL();
+        function(e) {
+            var dataUrl = canvas.toDataURL();
 
-        var blob = dataURLtoBlob(dataUrl);
+            // var blob = dataURLtoBlob(dataUrl);
 
-        var file = new File([blob], "gambar.png", { type: "image/png" });
+            // var file = new File([blob], "gambar.png", { type: "image/png" });
 
-        const hiddenInput = document.createElement("input");
-        hiddenInput.type = "file";
-        hiddenInput.name = document.querySelector('input[name="rujukan"]').value;
-        // hiddenInput.value = dataUrl
-        hiddenInput.style.display = "none";
-        
-        // sigText.innerHTML = dataUrl;
-        //sigImage.setAttribute("src", dataUrl);
-        
-        // Menambahkan hidden input di bawah tombol sig-clearBtn
-        clearBtn.parentNode.insertBefore(hiddenInput, clearBtn.nextSibling);
-        
-        hiddenInput.files = [file];
-        // Menghapus input dengan nama "rujukan"
-        var existingRujukanInput = document.querySelector('input[name="rujukan"]');
-        if (existingRujukanInput) {
-            existingRujukanInput.parentNode.removeChild(existingRujukanInput);
-        }
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "file";
+            hiddenInput.name = document.querySelector('input[name="rujukan"]').value;
+            // hiddenInput.value = dataUrl
+            hiddenInput.style.display = "none";
+
+            //test
+            sigImage.setAttribute("src", dataUrl);
+
+            // sigText.innerHTML = dataUrl;
+            //sigImage.setAttribute("src", dataUrl);
+
+            // Menambahkan hidden input di bawah tombol sig-clearBtn
+            clearBtn.parentNode.insertBefore(hiddenInput, clearBtn.nextSibling);
+
+            // hiddenInput.files = [file];
+            // Menghapus input dengan nama "rujukan"
+            var existingRujukanInput = document.querySelector('input[name="rujukan"]');
+            if (existingRujukanInput) {
+                existingRujukanInput.parentNode.removeChild(existingRujukanInput);
+            }
         },
         false
     );
 
-    // Fungsi untuk mengonversi data URL menjadi blob
-    function dataURLtoBlob(dataUrl) {
-        var binary = atob(dataUrl.split(',')[1]);
-        var array = [];
-        for (var i = 0; i < binary.length; i++) {
-            array.push(binary.charCodeAt(i));
-        }
-        return new Blob([new Uint8Array(array)], { type: 'image/png' });
-    }
 })();
