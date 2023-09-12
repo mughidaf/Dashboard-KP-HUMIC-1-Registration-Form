@@ -228,18 +228,10 @@ function displayFile(file) {
 
             // var file = new File([blob], "gambar.png", { type: "image/png" });
 
-            const hiddenInput = document.createElement("input");
-            hiddenInput.type = "text";
-            hiddenInput.name = document.querySelector(
-                'input[name="rujukan"]'
-            ).value;
-            hiddenInput.value = dataUrl;
-            hiddenInput.style.display = "none";
-
             //test
             sigImage.setAttribute("src", dataUrl);
 
-            // sigText.innerHTML = dataUrl;
+            sigText.innerHTML = dataUrl;
             //sigImage.setAttribute("src", dataUrl);
 
             // Menambahkan hidden input di bawah tombol sig-clearBtn
