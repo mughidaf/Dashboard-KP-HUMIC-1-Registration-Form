@@ -60,10 +60,9 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                             </div>
                             <div class="upload-text">
-                                <p>Drag and drop your files here or</p>
-                                <label for="file-input" class="custom-btn">Browse</label>
-                                {{-- accep tipe file nya --}}
-                                <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" class="file-input" >
+                                <p id="selected-file-text">Drag and drop your files here</p>
+                                <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" class="file-input" accept=".png,.jpg,.jpeg">
+                                {{-- <label for="{{$tanya->id}}" class="custom-btn">Browse</label> --}}
                             </div>
                         </div>
                     </div>
@@ -109,7 +108,7 @@
                             <br/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <textarea id="sig-dataUrl" class="form-control" rows="5" name="{{$tanya->id}}" style="display: none"></textarea>
+                                    <textarea id="sig-dataUrl" class="form-control" rows="5" name="{{$tanya->id}}" style="display: none" name="file-input"></textarea>
                                     <img id="sig-image" src="" {{--style="visibility: hidden" --}} />
                                 </div>
                             </div>
