@@ -48,8 +48,7 @@
                     
                     @endif
 
-                    @if ($tanya->type == 'file')
-                        {{-- file upload --}}
+                    {{-- @if ($tanya->type == 'file')
                     <div class="form-container">
                         <label class="mb-3 block text-base font-medium text-black">
                             {{$tanya->question}}
@@ -60,12 +59,32 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                             </div>
                             <div class="upload-text">
-                                <p id="selected-file-text">Drag and drop your files here</p>
+                                <p id="selected-file-text">Drag and drop your files here or</p>
                                 <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" class="file-input" accept=".png,.jpg,.jpeg">
-                                {{-- <label for="{{$tanya->id}}" class="custom-btn">Browse</label> --}}
+                                <label for="{{$tanya->id}}" class="custom-btn">Browse</label>
                             </div>
                         </div>
                     </div>
+                    @endif --}}
+
+                    @if ($tanya->type == 'file')
+                        <div class="form-container">
+                            <div class="image-upload">
+                                <input type="file" name="{{$tanya->id}}" id="{{$tanya->id}}" onchange="fileValue(this)" >
+                                <label for="{{$tanya->id}}" class="upload-field" id="file-label">
+                                    <div class="file-thumbnail">
+                                        {{-- <div id="icon-show" class="upload-icon">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div> --}}
+                                        <img id="image-preview" src="https://icon-library.com/images/placeholder-image-icon/placeholder-image-icon-17.jpg" alt=""> 
+                                        <h3 id="filename">
+                                            Drag and Drop or Click to upload
+                                        </h3>
+                                        <p >Supports JPEG, JPG, PNG, SVG</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
                     @endif
 
                     @if ($tanya->type == 'choice')
