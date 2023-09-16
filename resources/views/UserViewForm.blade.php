@@ -26,6 +26,7 @@
             </div>
             <form id="formCreator" action="/storeAnswer" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="sub" value={{$form->id}}>
                 @foreach ($form->Questions as $tanya)
                     @if ($tanya->type == 'teks')
                     <div class="form-container">
@@ -59,10 +60,10 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                             </div>
                             <div class="upload-text">
-                                <p>Drag and drop your files here or</p>
-                                <label for="file-input" class="custom-btn">Browse</label>
+                                {{-- <p>Drag and drop your files here or</p>
+                                <label for="file-input" class="custom-btn">Browse</label> --}}
                                 {{-- accep tipe file nya --}}
-                                <input name="{{$tanya->id}}" type="file" id="file-input" class="file-input" accept=".png,.jpg,.jpeg">
+                                <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" >
                             </div>
                         </div>
                     </div>
@@ -101,7 +102,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="hidden" value="{{$tanya->id}}" name="rujukan">
                                     <button type="button" class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
                                     <button type="button" class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
                                 </div>
@@ -109,7 +109,7 @@
                             <br/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <textarea id="sig-dataUrl" class="form-control" rows="5" name="{{$tanya->id}}">Data URL for your signature will go here!</textarea>
+                                    <textarea id="sig-dataUrl" class="form-control" rows="5" name="{{$tanya->id}}" style="display: none"></textarea>
                                     <img id="sig-image" src="" {{--style="visibility: hidden" --}} />
                                 </div>
                             </div>
@@ -118,6 +118,7 @@
                     </div>
                     @endif
                     @endforeach
+                    
                     <button type="submit" id="submitBtn">Submit</button>
                 </form>
         </div>

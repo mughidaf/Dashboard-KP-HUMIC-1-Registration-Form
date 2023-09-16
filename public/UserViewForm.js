@@ -237,16 +237,16 @@ function displayFile(file) {
             // Menambahkan hidden input di bawah tombol sig-clearBtn
             clearBtn.parentNode.insertBefore(hiddenInput, clearBtn.nextSibling);
 
-            // hiddenInput.files = [file];
-            // Menghapus input dengan nama "rujukan"
-            var existingRujukanInput = document.querySelector(
-                'input[name="rujukan"]'
-            );
-            if (existingRujukanInput) {
-                existingRujukanInput.parentNode.removeChild(
-                    existingRujukanInput
-                );
-            }
+            // // hiddenInput.files = [file];
+            // // Menghapus input dengan nama "rujukan"
+            // var existingRujukanInput = document.querySelector(
+            //     'input[name="rujukan"]'
+            // );
+            // if (existingRujukanInput) {
+            //     existingRujukanInput.parentNode.removeChild(
+            //         existingRujukanInput
+            //     );
+            // }
         },
         false
     );
