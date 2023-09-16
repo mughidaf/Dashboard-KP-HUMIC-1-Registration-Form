@@ -60,10 +60,10 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                             </div>
                             <div class="upload-text">
-                                {{-- <p>Drag and drop your files here or</p>
-                                <label for="file-input" class="custom-btn">Browse</label> --}}
+                                <p>Drag and drop your files here or</p>
+                                <label for="file-input" class="custom-btn">Browse</label>
                                 {{-- accep tipe file nya --}}
-                                <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" >
+                                <input name="{{$tanya->id}}" type="file" id="{{$tanya->id}}" class="file-input" >
                             </div>
                         </div>
                     </div>
