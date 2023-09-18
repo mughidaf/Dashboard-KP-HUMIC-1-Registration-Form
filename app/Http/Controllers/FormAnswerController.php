@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\FormAnswer;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFormAnswerRequest;
 use App\Http\Requests\UpdateFormAnswerRequest;
-use Symfony\Component\HttpFoundation\Request;
+use App\Models\Submission;
+use Illuminate\Http\Request;
 
 class FormAnswerController extends Controller
 {
@@ -31,7 +31,48 @@ class FormAnswerController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $postData = $request->all();
+        
+        foreach ($postData as $key => $value){
+            if ($key === '_token') {
+                continue;
+            }
+
+            if ($key === 'sub') {
+                Submission::create([
+                    'formID' => $value
+                ]);
+            }
+        }
+
+        $subID = Submission::latest()->first()->id;
+        $formID = Submission::latest()->first()->formID;
+
+        foreach ($postData as $key => $value){
+            if ($key === '_token' or $key === 'sub')  {
+                continue;
+            } else{
+                if (is_a($value, 'Illuminate\Http\UploadedFile')) {
+                    // Jika nilai adalah file, upload dan simpan ke direktori "uploaded_answer"
+                    $path = $value->store('answers-files');
+                    FormAnswer::create([
+                        'formID' => $formID,
+                        'subID' => $subID,
+                        'questionID' => $key,
+                        'answer' => $path
+                    ]);
+                } else {
+                    FormAnswer::create([
+                        'formID' => $formID,    
+                        'subID' => $subID,
+                        'questionID' => $key,
+                        'answer' => $value
+                    ]);
+                }
+            }
+        }
+
+        return redirect('/')->with('status', 'Data berhasil disimpan.');
     }
 
     /**
