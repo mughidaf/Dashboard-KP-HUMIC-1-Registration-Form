@@ -68,23 +68,23 @@
                     @endif --}}
 
                     @if ($tanya->type == 'file')
-                        <div class="form-container">
-                            <div class="image-upload">
-                                <input type="file" name="{{$tanya->id}}" id="{{$tanya->id}}" onchange="fileValue(this)" >
-                                <label for="{{$tanya->id}}" class="upload-field" id="file-label">
-                                    <div class="file-thumbnail">
-                                        {{-- <div id="icon-show" class="upload-icon">
-                                            <i class="fas fa-cloud-upload-alt"></i>
-                                        </div> --}}
-                                        <img id="image-preview" src="https://icon-library.com/images/placeholder-image-icon/placeholder-image-icon-17.jpg" alt=""> 
-                                        <h3 id="filename">
-                                            Drag and Drop or Click to upload
-                                        </h3>
-                                        <p >Supports JPEG, JPG, PNG, SVG</p>
+                    <div class="form-container">
+                        <div class="image-upload">
+                            <input type="file" name="{{$tanya->id}}" id="{{$tanya->id}}" onchange="fileValue(this)" >
+                            <label for="{{$tanya->id}}" class="upload-field" id="file-label">
+                                <div class="file-thumbnail">
+                                    <div id="icon-show" class="upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
                                     </div>
-                                </label>
-                            </div>
+                                    <h3 id="filename">
+                                        Drag and Drop or Click to upload
+                                    </h3>
+                                    <p class="filename-display"></p> 
+                                </div>
+                            </label>
                         </div>
+                    </div>
+                    
                     @endif
 
                     @if ($tanya->type == 'choice')
