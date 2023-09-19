@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('formID');
             $table->foreignId('questionID');
             $table->foreignId('subID');
-            $table->string('answer');
+            $table->string('answer',10000);
             $table->timestamps();
         });
     }
