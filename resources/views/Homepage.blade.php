@@ -48,7 +48,14 @@
 
 
     <main>
-        <h2>News & Activity</h2>
+        <div class="news">
+            <h2>News & Activity</h2>
+        <button>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> Create
+            </span>
+        </button>
+        </div>
         @foreach ($forms as $form)
         <div class="container-fluid">
             <a href="/userForm/{{$form->id}}">
@@ -56,6 +63,10 @@
                     <div class="col-12 mt-3">
                         <div class="card">
                             <div class="card-horizontal">
+                                <div class="card-buttons">
+                                    <a href="/editForm/{{$form->id}}" class="edit-button">Edit</a>
+                                    <a href="/userForm/{{$form->id}}" class="view-button">View</a>
+                                </div>
                                 <div class="img-square-wrapper">
                                     <img class="" src="storage/{{$form->gambar}}" alt="Card image cap">
                                 </div>
