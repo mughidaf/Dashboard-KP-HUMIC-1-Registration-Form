@@ -46,3 +46,4 @@ Route::get('/UserLogin', function () {
 });
 
 Route::get('/userForm/{id}',[FormQuestionController::class,'show']);
+Route::get('/viewForm/{id}',[FormAnswerController::class,'show']);

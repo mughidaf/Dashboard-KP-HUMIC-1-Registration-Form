@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\FormAnswer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFormAnswerRequest;
@@ -78,9 +79,10 @@ class FormAnswerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FormAnswer $formAnswer)
+    public function show($id)
     {
-        //
+        $form = Form::find($id);
+        return view('ResponsePage',['form' => $form]);
     }
 
     /**

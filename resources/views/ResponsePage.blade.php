@@ -9,21 +9,22 @@
 </head>
 <body>
     <div class="form-container">
+        @foreach ($form->Questions as $tanya)
         <div class="question-card">
             <div class="option-container">
                 <div class="question-title">
-                    <!--gaudah dikasih nomor lagi udah di couter otomatis-->
-                    <p>.The Quesation</p>
+                    <!--gaudah dikasih nomor lagi udah di counter otomatis-->
+                    <p>. {{$tanya->question}}</p>
                     <a href="/MoreOption"><u>More Option</u></a>
                     <div class="Number-Respond">
-                        <h1 id="responsessCount">Number of responses : <span>0</span></h1>
+                        <h1 id="responsessCount">Number of responses : {{count($tanya->Answers)}} <span>0</span></h1>
                         <!--masih belum tau cara manggil var global buat nambahin num of respon esuai sama data-->
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="question-card">
+        
+        {{-- <div class="question-card">
             <div class="option-container">
                 <div class="question-title">
                     <!--gaudah dikasih nomor lagi udah di couter otomatis-->
@@ -34,7 +35,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @endforeach
     </div>
     
     <script>
