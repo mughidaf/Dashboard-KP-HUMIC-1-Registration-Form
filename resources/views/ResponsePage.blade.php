@@ -17,7 +17,7 @@
                     <p>. {{$tanya->question}}</p>
                     <a href="/MoreOption"><u>More Option</u></a>
                     <div class="Number-Respond">
-                        <h1 id="responsessCount">Number of responses : {{count($tanya->Answers)}} <span>0</span></h1>
+                        <h1 id="responsessCount">Number of responses : {{count($tanya->Answers)}} </h1>
                         <!--masih belum tau cara manggil var global buat nambahin num of respon esuai sama data-->
                     </div>
                 </div>

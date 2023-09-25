@@ -1,11 +1,10 @@
-var hasil = 1233;
 
 function updateResponsesCounts() {
     var h1Element = document.getElementById("responsessCount");
 
-    idFormatter(
-        h1Element.textContent = "Number of responses : " + hasil
-    );
+    // idFormatter(
+    //     h1Element.textContent = "Number of responses : "
+    // );
 }
 
 window.onload = function() {
