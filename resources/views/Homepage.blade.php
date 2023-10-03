@@ -71,7 +71,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title" style="color: black">{{$form->judul}}</h4>
                                     <div class="card-buttons">
-                                        <a href="/editForm/{{$form->id}}" class="edit-button">Edit</a>
+                                        <a href="/editForm/{{$form->id}}" class="edit-button">Delete</a>
                                         <a href="/viewForm/{{$form->id}}" class="view-button">View</a>
                                     </div>
                                     <p class="card-text">{{$form->deskripsi}}</p>

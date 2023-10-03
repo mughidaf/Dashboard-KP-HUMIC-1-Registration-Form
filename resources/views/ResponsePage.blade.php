@@ -15,27 +15,13 @@
                 <div class="question-title">
                     <!--gaudah dikasih nomor lagi udah di counter otomatis-->
                     <p>. {{$tanya->question}}</p>
-                    <a href="/MoreOption"><u>More Option</u></a>
+                    <a href="/Details/{{$tanya->id}}"><u>Click to see the details</u></a>
                     <div class="Number-Respond">
                         <h1 id="responsessCount">Number of responses : {{count($tanya->Answers)}} </h1>
-                        <!--masih belum tau cara manggil var global buat nambahin num of respon esuai sama data-->
                     </div>
                 </div>
             </div>
         </div>
-        
-        {{-- <div class="question-card">
-            <div class="option-container">
-                <div class="question-title">
-                    <!--gaudah dikasih nomor lagi udah di couter otomatis-->
-                    <p>. The Radio Quesation</p>
-                    <a href="/MoreOption"><u>More Option</u></a>
-                    <div class="Number-Respond">
-                        <div id="myChart" style=""></div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         @endforeach
     </div>
     

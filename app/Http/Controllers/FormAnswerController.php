@@ -6,6 +6,7 @@ use App\Models\Form;
 use App\Models\FormAnswer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateFormAnswerRequest;
+use App\Models\FormQuestion;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 
@@ -83,6 +84,23 @@ class FormAnswerController extends Controller
     {
         $form = Form::find($id);
         return view('ResponsePage',['form' => $form]);
+    }
+    public function detail($id)
+    {
+        $tanya = FormQuestion::find($id);
+        $form = Form::find($tanya->formID);
+        $cek= $form->Questions()
+        ->whereRaw("LOWER(question) REGEXP '[[:<:]](nama|name)[[:>:]]'")->first();
+
+        if ($cek) {
+            $questionId = $cek->id;
+        } else {
+            $questionId = null;
+        }
+        
+        $identitas = FormQuestion::find($questionId);
+
+        return view('/MoreOption',['identitas' => $identitas,'question' => $tanya]);
     }
 
     /**

@@ -13,7 +13,7 @@
 <body>
     
     <div class="container">
-        <h1>The Question</h1>
+        <h1>{{$question->question}}</h1>
 
         <!--ini buat value apa yang mau di export-->
         <div id="toolbar">
@@ -25,8 +25,7 @@
 
         <!--NUmOfResponses-->
         <div class="information">
-            <h1 id="responsesCount">Number of responses : <span>0</span></h1>
-            <button onclick="updateResponsesCount()">Update Count</button>
+            <h1 id="responsesCount">Number of responses : <span>{{count($question->Answers)}}</span></h1>
         </div>
         
         <table id="table"   
@@ -45,174 +44,29 @@
                 <!--data-filter-control="". itu buat tipe buat nyari data yang sama, ada input sama select -->
                 <tr>
                     <th data-field="state" data-checkbox="true"></th>
-                    <th data-field="ID" data-footer-formatter="idFormatter" data-filter-control="select" data-sortable="true">ID User</th>
+                    <th data-field="ID" data-footer-formatter="idFormatter" data-filter-control="select" data-sortable="true">Submission ID</th>
                     <th data-field="name" data-filter-control="input" data-sortable="true">Name</th>
-                    <th data-field="answer" data-filter-control="select" data-sortable="true">Answer</th>
+                    <th data-field="answer" data-filter-control="select" data-sortable="true">Respon</th>
                 </tr>
             </thead>
             <tbody>
                 <!--1 tr satu kolum-->
-                <tr>
-                    <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
-                    <td>01</td>
-                    <td>Pari</td>
-                    <td>i need more boolet</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
-                    <td>01</td>
-                    <td>Pari</td>
-                    <td>i need more boolet</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
-                    <td>02</td>
-                    <td>Ghiyat</td>
-                    <td>i need more boolet</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
-                <tr>
-                    <td class="bs-checkbox "><input data-index="2" name="btSelectItem" type="checkbox"></td>
-                    <td>03</td>
-                    <td>Ghiyat</td>
-                    <td>i need bigger weapon</td>
-                </tr>
-
+                @for ($i = 0; $i < count($question->Answers); $i++)
+                    @php
+                        $respon = $question->Answers[$i];
+                        $nama = $identitas->Answers[$i]->answer;
+                    @endphp
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
+                        <td>{{$respon->subID}}</td>
+                        @if ($identitas != null)
+                            <td>{{$nama}}</td>
+                        @else
+                            <td>-</td>
+                        @endif
+                        <td>{{$respon->answer}}</td>
+                    </tr>
+                @endfor
             </tbody>
         </table>
     </div>
