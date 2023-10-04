@@ -28,7 +28,7 @@
             <h1 id="responsesCount">Number of responses : <span>{{count($question->Answers)}}</span></h1>
         </div>
         
-        <table id="table"   
+        {{-- <table id="table"   
                     data-toggle="table"
                     data-height="460"
                     data-search="true"
@@ -54,7 +54,9 @@
                 @for ($i = 0; $i < count($question->Answers); $i++)
                     @php
                         $respon = $question->Answers[$i];
-                        $nama = $identitas->Answers[$i]->answer;
+                        if ($identitas != null) {
+                            $nama = $identitas->Answers[$i]->answer;
+                        }
                     @endphp
                     <tr>
                         <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
@@ -64,10 +66,66 @@
                         @else
                             <td>-</td>
                         @endif
-                        <td>{{$respon->answer}}</td>
+
+                        @if ($question->type == "file")
+                        <a href="youtube.com">
+                            <td>
+                               Test 
+                            </td>
+                        </a>
+                        @elseif ($question->type == "ttd")
+                            <td>
+                                <img src="storage/{{$respon->answer}}" alt="">
+                            </td>
+                        @else   
+                            <td>{{$respon->answer}}</td>
+                        @endif
                     </tr>
                 @endfor
             </tbody>
+        </table> --}}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sub ID</th>
+                    <th>Name</th>
+                    <th>Respon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--1 tr satu kolum-->
+                @for ($i = 0; $i < count($question->Answers); $i++)
+                    @php
+                        $respon = $question->Answers[$i];
+                        if ($identitas != null) {
+                            $nama = $identitas->Answers[$i]->answer;
+                        }
+                    @endphp
+                    <tr>
+                        <td class="bs-checkbox "><input data-index="1" name="btSelectItem" type="checkbox"></td>
+                        <td>{{$respon->subID}}</td>
+                        @if ($identitas != null)
+                            <td>{{$nama}}</td>
+                        @else
+                            <td>-</td>
+                        @endif
+
+                        @if ($question->type == "file")
+                            <td>
+                               <a href="youtube.com">dsada</a>
+                            </td>
+                        @elseif ($question->type == "ttd")
+                            <td>
+                                <img src="{{$respon->answer}}" alt="sadsa">
+                            </td>
+                        @else   
+                            <td>{{$respon->answer}}</td>
+                        @endif
+                    </tr>
+                @endfor
+            </tbody>
+
         </table>
     </div>
 
