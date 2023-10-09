@@ -155,7 +155,7 @@
 
                         @if ($question->type == "file")
                             <td>
-                                <a href="google.com">{{$respon->answer}}</a>
+                                <a href="/Storage/{{$respon->answer}}">Click to see the document</a>
                             </td>
                         @elseif ($question->type == "ttd")
                             <td>

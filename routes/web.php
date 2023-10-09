@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FormController::class,'index']);
+Route::get('/', [FormController::class,'index'])->name('home');
 
 Route::get('/formMaker', function () {
     return view('FormMaker');
@@ -47,4 +47,5 @@ Route::get('/UserLogin', function () {
 
 Route::get('/userForm/{id}',[FormQuestionController::class,'show']);
 Route::get('/viewForm/{id}',[FormAnswerController::class,'show']);
+Route::get('/deleteForm/{id}',[FormController::class,'destroy']);
 Route::get('/Details/{id}',[FormAnswerController::class,'detail']);

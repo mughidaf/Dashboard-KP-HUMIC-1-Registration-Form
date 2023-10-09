@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateFormAnswerRequest;
 use App\Models\FormQuestion;
 use App\Models\Submission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormAnswerController extends Controller
 {
@@ -101,6 +102,19 @@ class FormAnswerController extends Controller
         $identitas = FormQuestion::find($questionId);
 
         return view('/MoreOption',['identitas' => $identitas,'question' => $tanya]);
+    }
+
+    public function openFile($filename){
+        $filePath = 'Storage/' . $filename;
+
+    // Periksa apakah file ada di penyimpanan
+    if (Storage::exists($filePath)) {
+        // Mengembalikan file ke browser untuk dibuka di tab baru
+        return response()->file(storage_path('app/' . $filePath));
+    } else {
+        // Handle jika file tidak ditemukan
+        return abort(404, 'File not found');
+    }
     }
 
     /**

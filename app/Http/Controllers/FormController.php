@@ -114,8 +114,38 @@ class FormController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Form $form)
+    public function destroy($id)
     {
-        //
+        $form = Form::find($id);
+
+        // Jika form tidak ditemukan, mungkin Anda ingin menangani kasus ini sesuai kebutuhan Anda
+        if (!$form) {
+            return abort(404, 'Form not found');
+        }
+
+        // Hapus semua pertanyaan (Questions) yang terkait dengan form
+        $questions = $form->Questions;
+
+        foreach ($questions as $question) {
+            // Hapus semua Options jika Options tidak null
+            if ($question->Options) {
+                $question->Options()->delete();
+            }
+        }
+
+
+        $form->Questions()->delete();
+
+        // Hapus semua jawaban (Answers) yang terkait dengan form
+        $form->Answers()->delete();
+
+        // Hapus semua pengiriman (Submissions) yang terkait dengan form
+        $form->Submissions()->delete();
+
+        // Akhirnya, hapus form itu sendiri
+        $form->delete();
+
+        // Redirect atau berikan respons sesuai kebutuhan Anda
+        return redirect()->route('home');
     }
 }
