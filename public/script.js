@@ -16,6 +16,137 @@ fileInput.addEventListener("change", (e) => {
     }
 });
 
+//funtion
+// function addText() {
+//     var x = document.getElementById("add-text");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+
+// function addFile() {
+//     var x = document.getElementById("add-file");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+
+// function addSign() {
+//     var x = document.getElementById("add-Sign");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+
+// function addTtd() {
+//     var x = document.getElementById("add-ttd");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+
+//new approach
+function addText() {
+    var template = document.getElementById("add-text");
+    var clone = template.cloneNode(true);
+    clone.style.display = "block";
+
+    var parent = document.getElementById("teks-content");
+    parent.appendChild(clone);
+
+    // var removeButton = document.querySelector(".remove");
+    // removeButton.addEventListener("click", function() {
+    //     var parentGroup = removeButton.closest(".add-text");
+    //     if (parentGroup) {
+    //         parentGroup.remove();
+    //     }
+    //     clone.remove();
+    // });
+
+    var removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginTop = "10px";
+    removeButton.addEventListener("click", function() {
+        clone.remove();
+    });
+
+    clone.appendChild(removeButton);
+}
+
+
+
+function addFile() {
+    var template = document.getElementById("add-file");
+    var clone = template.cloneNode(true);
+
+    //ubah display dari none ke block
+    clone.style.display = "block";
+
+    //append ke parent
+    var parent = document.getElementById("teks-content");
+    parent.appendChild(clone);
+
+    var removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginTop = "10px";
+    removeButton.addEventListener("click", function() {
+        clone.remove();
+    });
+
+    clone.appendChild(removeButton);
+
+}
+
+function addChoice() {
+    var template = document.getElementById("add-choice");
+    var clone = template.cloneNode(true);
+
+    //ubah display dari none ke block
+    clone.style.display = "block";
+
+    //append ke parent
+    var parent = document.getElementById("teks-content");
+    parent.appendChild(clone);
+
+    var removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginTop = "10px";
+    removeButton.addEventListener("click", function() {
+        clone.remove();
+    });
+
+    clone.appendChild(removeButton);
+}
+
+function addTtd() {
+    var template = document.getElementById("add-ttd");
+    var clone = template.cloneNode(true);
+
+    //ubah display dari none ke block
+    clone.style.display = "block";
+
+    //append ke parent
+    var parent = document.getElementById("teks-content");
+    parent.appendChild(clone);
+
+    var removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginTop = "10px";
+    removeButton.addEventListener("click", function() {
+        clone.remove();
+    });
+
+    clone.appendChild(removeButton);
+}
+
 // preview file apa yang di upload dengan <p>
 function displayFile(file) {
     const uploadText = document.querySelector(".input-judul");

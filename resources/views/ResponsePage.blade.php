@@ -9,7 +9,13 @@
 </head>
 <body>
     <div class="form-container">
-        @foreach ($form->Questions as $tanya)
+      <div class="header-all">
+        <div class="question-title">
+          <h2>Nama Form</h2>
+          <a href=""><button  class="view-result" type="button">View Result</button></a>
+        </div>
+      </div>
+      @foreach ($form->Questions as $tanya)
         <div class="question-card">
             <div class="option-container">
                 <div class="question-title">
@@ -56,6 +62,7 @@
     
     <script src="/ResponsePage.js"></script>
     <script src="/MoreOption.js"></script>
+    <script src="/ResponsePageAllTable.js"></script>
     <script type="text/javascript" src="/ResponsePage.js"></script>
     <script type="text/javascript" src="/MoreOption.js"></script>
 </body>
