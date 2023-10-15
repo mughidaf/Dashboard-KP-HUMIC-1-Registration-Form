@@ -46,6 +46,7 @@
     
                 <div class="button-container">
                   <button type="button" id="cancelForm">Cancel</button>
+                  <button type="submit" id="previewtForm">Preview</button>
                   <button type="submit" id="submitForm">Simpan</button>
                 </div>
               </div>
