@@ -52,100 +52,117 @@ fileInput.addEventListener("change", (e) => {
 //         x.style.display = "none";
 //     }
 // }
+const previewButton = document.getElementById("btn-txt");
+const addTextContainer = document.getElementById("add-text");
+const addFileContainer = document.getElementById("add-file");
+const addChoiceContainer = document.getElementById("add-choice");
+const addTtdContainer = document.getElementById("add-ttd");
 
+function previewForm() {
+    const previewData = {
+        text: addTextContainer.querySelector('input[type="text"]').value,
+        file: addFileContainer.querySelector('input[type="file"]').value,
+        choice: addChoiceContainer.querySelector('input[type="radio"]:checked').value,
+        ttd: addTtdContainer.querySelector('textarea').value,
+    };
+
+    // You can now use the 'previewData' object to display the preview data
+    console.log(previewData);
+    // You can also display this data in a popup or a separate preview area on your page.
+}
 //new approach
-function addText() {
-    var template = document.getElementById("add-text");
-    var clone = template.cloneNode(true);
-    clone.style.display = "block";
+// function addText() {
+//     var template = document.getElementById("add-text");
+//     var clone = template.cloneNode(true);
+//     clone.style.display = "block";
 
-    var parent = document.getElementById("teks-content");
-    parent.appendChild(clone);
+//     var parent = document.getElementById("teks-content");
+//     parent.appendChild(clone);
 
-    // var removeButton = document.querySelector(".remove");
-    // removeButton.addEventListener("click", function() {
-    //     var parentGroup = removeButton.closest(".add-text");
-    //     if (parentGroup) {
-    //         parentGroup.remove();
-    //     }
-    //     clone.remove();
-    // });
+//     // var removeButton = document.querySelector(".remove");
+//     // removeButton.addEventListener("click", function() {
+//     //     var parentGroup = removeButton.closest(".add-text");
+//     //     if (parentGroup) {
+//     //         parentGroup.remove();
+//     //     }
+//     //     clone.remove();
+//     // });
 
-    var removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.style.marginTop = "10px";
-    removeButton.addEventListener("click", function() {
-        clone.remove();
-    });
+//     var removeButton = document.createElement("button");
+//     removeButton.textContent = "Remove";
+//     removeButton.style.marginTop = "10px";
+//     removeButton.addEventListener("click", function() {
+//         clone.remove();
+//     });
 
-    clone.appendChild(removeButton);
-}
+//     clone.appendChild(removeButton);
+// }
 
 
 
-function addFile() {
-    var template = document.getElementById("add-file");
-    var clone = template.cloneNode(true);
+// function addFile() {
+//     var template = document.getElementById("add-file");
+//     var clone = template.cloneNode(true);
 
-    //ubah display dari none ke block
-    clone.style.display = "block";
+//     //ubah display dari none ke block
+//     clone.style.display = "block";
 
-    //append ke parent
-    var parent = document.getElementById("teks-content");
-    parent.appendChild(clone);
+//     //append ke parent
+//     var parent = document.getElementById("teks-content");
+//     parent.appendChild(clone);
 
-    var removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.style.marginTop = "10px";
-    removeButton.addEventListener("click", function() {
-        clone.remove();
-    });
+//     var removeButton = document.createElement("button");
+//     removeButton.textContent = "Remove";
+//     removeButton.style.marginTop = "10px";
+//     removeButton.addEventListener("click", function() {
+//         clone.remove();
+//     });
 
-    clone.appendChild(removeButton);
+//     clone.appendChild(removeButton);
 
-}
+// }
 
-function addChoice() {
-    var template = document.getElementById("add-choice");
-    var clone = template.cloneNode(true);
+// function addChoice() {
+//     var template = document.getElementById("add-choice");
+//     var clone = template.cloneNode(true);
 
-    //ubah display dari none ke block
-    clone.style.display = "block";
+//     //ubah display dari none ke block
+//     clone.style.display = "block";
 
-    //append ke parent
-    var parent = document.getElementById("teks-content");
-    parent.appendChild(clone);
+//     //append ke parent
+//     var parent = document.getElementById("teks-content");
+//     parent.appendChild(clone);
 
-    var removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.style.marginTop = "10px";
-    removeButton.addEventListener("click", function() {
-        clone.remove();
-    });
+//     var removeButton = document.createElement("button");
+//     removeButton.textContent = "Remove";
+//     removeButton.style.marginTop = "10px";
+//     removeButton.addEventListener("click", function() {
+//         clone.remove();
+//     });
 
-    clone.appendChild(removeButton);
-}
+//     clone.appendChild(removeButton);
+// }
 
-function addTtd() {
-    var template = document.getElementById("add-ttd");
-    var clone = template.cloneNode(true);
+// function addTtd() {
+//     var template = document.getElementById("add-ttd");
+//     var clone = template.cloneNode(true);
 
-    //ubah display dari none ke block
-    clone.style.display = "block";
+//     //ubah display dari none ke block
+//     clone.style.display = "block";
 
-    //append ke parent
-    var parent = document.getElementById("teks-content");
-    parent.appendChild(clone);
+//     //append ke parent
+//     var parent = document.getElementById("teks-content");
+//     parent.appendChild(clone);
 
-    var removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.style.marginTop = "10px";
-    removeButton.addEventListener("click", function() {
-        clone.remove();
-    });
+//     var removeButton = document.createElement("button");
+//     removeButton.textContent = "Remove";
+//     removeButton.style.marginTop = "10px";
+//     removeButton.addEventListener("click", function() {
+//         clone.remove();
+//     });
 
-    clone.appendChild(removeButton);
-}
+//     clone.appendChild(removeButton);
+// }
 
 // preview file apa yang di upload dengan <p>
 function displayFile(file) {
@@ -207,6 +224,12 @@ teksButton.addEventListener("click", function() {
     answerInput.type = "text";
     answerInput.name = "jawaban";
     answerInput.disabled = true;
+
+    //input ininput
+    const textInput = document.createElement("input");
+    textInput.id = "txt";
+    textInput.setAttribute("oninput", "textdata()");
+    textInput.type = "text";
 
     // Buat elemen tombol "Remove"
     const removeButton = document.createElement("button");

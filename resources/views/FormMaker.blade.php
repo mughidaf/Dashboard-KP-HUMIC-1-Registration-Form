@@ -46,8 +46,8 @@
     
                 <div class="button-container">
                   <button type="button" id="cancelForm">Cancel</button>
-                  <button type="submit" id="previewtForm">Preview</button>
                   <button type="submit" id="submitForm">Simpan</button>
+                  <button type="button" id="btn-txt" onclick="previewForm()">Preview</button>
                 </div>
               </div>
             </form>
