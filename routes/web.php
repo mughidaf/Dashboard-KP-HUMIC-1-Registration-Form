@@ -3,6 +3,7 @@
 use App\Http\Controllers\FormAnswerController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormQuestionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/formMaker', function () {
 
 Route::post('/storeForm', [FormController::class,'store']);
 Route::post('/storeAnswer', [FormAnswerController::class,'store']);
+Route::post('/', [UserController::class,'login']);
 
 Route::get('/ResponsePage', function () {
     return view('ResponsePage');

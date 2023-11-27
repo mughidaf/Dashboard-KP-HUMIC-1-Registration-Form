@@ -20,41 +20,49 @@
             </div>
         </div>
 
-        <div class="form-section">
-            <div class="form-wrapper">
-                <div class="logo-container">
-                    <a href="#" class="logo-container">
-                        <img src="./image/Humic-logi.png  " alt="Logo">
-                    </a>
-                </div>
-
-                <h2>Welcome Back! 👋🏻</h2>
-                <p>Silahkan masukkan data anda.</p>
-
-                <div class="input-container">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input name=email[] type="email" id="email" autocomplete="off">
+        @if(session()->has('loginError'))
+                    <div class="error" style="margin-left: 0%">
+                        {{session('loginError')}}
                     </div>
+                    @endif
+        <div class="form-section">
+            <form action="/" method="post">
+                @csrf
+                <div class="form-wrapper">
+                    <div class="logo-container">
+                        <a href="#" class="logo-container">
+                            <img src="./image/Humic-logi.png  " alt="Logo">
+                        </a>
+                    </div>
+                    
+                    <h2>Welcome Back! 👋🏻</h2>
+                    <p>Silahkan masukkan data anda untuk akses admin.</p>
+                    
+                    <div class="input-container">
+                        <div class="form-group">
+                            <label for="email">Name</label>
+                            <input name=name type="text" id="name" autocomplete="off">
+                        </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input name=pass[] type="password" id="password">
+                        <input name=pass type="password" id="password">
                     </div>
                 </div>
                 
-
+                
                 <div class="remember-forgot"> 
                     {{-- <div class="remember-me">
                         <input type="checkbox" value="remember-me" id="remember-me">
                         <label for="remember-me">Remember me</label>
                     </div> --}}
                 </div>
-                <button class="login-btn">Log In</button>
-
+                <button class="login-btn" type="submit">Log In</button>
+                
                 {{-- <div class="or-divider">or</div>
-
+                
                 <button class="signup-btn">SignUp</button> --}}
-            </div>
+            </form>
+        </div>
         </div>
     </section>
   </body>
