@@ -11,7 +11,7 @@
     <div class="form-container">
       <div class="header-all">
         <div class="question-title">
-          <h2>Nama Form</h2>
+          <h2>{{$form->judul}}</h2>
           <a href=""><button  class="view-result" type="button">View Result</button></a>
         </div>
       </div>
