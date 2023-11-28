@@ -157,11 +157,10 @@ button {
 }
 
 .layout {
-    width: auto;
-    display: grid;
-    grid: "sidebar body" auto / 50%;
-    gap: 8px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .divider {
@@ -173,6 +172,7 @@ button {
 /* divider  */
 
 .form-container {
+    width: 600px;
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
@@ -429,4 +429,9 @@ button {
 
 .input-text {
     width: 100%;
+}
+
+.upload-icon i:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
 }

@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        {{-- Pemisah split scxreen --}}
+        {{-- Pemisah split scxreen
         <div class="divider">
           <div class="half" id="teks-content">
             <div class="form-container">
@@ -64,7 +64,7 @@
                 <hr>
                 <p>asdasdasd</p>
               </div>
-            </div>
+            </div> --}}
 
             {{-- text --}}
 
@@ -156,8 +156,6 @@
               </div>
           </div> 
         </div>
-
-        <div class="Split2"></div>
       </section>
 
 
