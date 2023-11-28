@@ -12,7 +12,7 @@
       <div class="header-all">
         <div class="question-title">
           <h2>{{$form->judul}}</h2>
-          <a href=""><button  class="view-result" type="button">View Result</button></a>
+          <a href="/AllResult/{{$form->id}}"><button  class="view-result" type="button">View All Result</button></a>
         </div>
       </div>
       @foreach ($form->Questions as $tanya)

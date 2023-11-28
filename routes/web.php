@@ -53,3 +53,4 @@ Route::get('/userForm/{id}',[FormQuestionController::class,'show']);
 Route::get('/viewForm/{id}',[FormAnswerController::class,'show']);
 Route::get('/deleteForm/{id}',[FormController::class,'destroy']);
 Route::get('/Details/{id}',[FormAnswerController::class,'detail']);
+Route::get('/AllResult/{id}',[FormAnswerController::class,'allData']);

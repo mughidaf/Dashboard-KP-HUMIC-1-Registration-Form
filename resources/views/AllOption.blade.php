@@ -11,21 +11,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{$question->question}}</h1>
+    <h1>{{$form->judul}}</h1>
     <table id="example" class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
         <thead>
             <tr> 
-                <th>ID</th>
-                <th>Name</th>
-                <th>Response</th>
+                <th>Nama</th>
+                @foreach ($form->questions as $item)
+                    @if (!preg_match('/\b(?:name|nama)\b/i', $item->question))
+                        <th>{{$item->question}}</th>
+                    @endif
+                @endforeach
 
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>
-                    <p id="responsesCount">Number of responses : <span>{{count($question->Answers)}}</span></p>
-                </th>
                 <th></th>
                 <th></th>
                 
@@ -33,35 +33,10 @@
         </tfoot>
             <tbody>
                 <!--1 tr satu kolum-->
-                @for ($i = 0; $i < count($question->Answers); $i++)
-                    @php
-                        $respon = $question->Answers[$i];
-                        if ($identitas != null) {
-                            $nama = $identitas->Answers[$i]->answer;
-                        }
-                    @endphp
+                
                     <tr>
-                        <td >{{$respon->subID}}</td>
-                        
-                        @if ($identitas != null)
-                            <td>{{$nama}}</td>
-                        @else
-                            <td>-</td>
-                        @endif
-
-                        @if ($question->type == "file")
-                            <td>
-                                <a href="/Storage/{{$respon->answer}}">Click to see the document</a>
-                            </td>
-                        @elseif ($question->type == "ttd")
-                            <td>
-                                <img src="{{$respon->answer}}" alt="sadsa">
-                            </td>
-                        @else   
-                            <td>{{$respon->answer}}</td>
-                        @endif
+                        Testing
                     </tr>
-                @endfor
             </tbody>
     </table>
     

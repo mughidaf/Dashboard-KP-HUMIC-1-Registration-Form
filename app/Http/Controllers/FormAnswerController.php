@@ -140,4 +140,9 @@ class FormAnswerController extends Controller
     {
         //
     }
+
+    public function allData($id){
+        $form = Form::find($id);
+        return view('AllOption',['form' => $form]);
+    }
 }
