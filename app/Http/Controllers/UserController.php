@@ -22,4 +22,31 @@ class UserController extends Controller
         }
         return back()->with('loginError', 'Login Failed!');
     }
+
+    public function register(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+        ]);
+
+        return redirect('/')->with('success','Registration succesfull! please login!');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+ 
+        $request->session()->regenerateToken();
+ 
+        return redirect('/');
+    }
 }

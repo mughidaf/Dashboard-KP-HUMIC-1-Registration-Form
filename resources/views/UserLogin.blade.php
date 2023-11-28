@@ -43,10 +43,10 @@
                             <label for="email">Name</label>
                             <input name=name type="text" id="name" autocomplete="off">
                         </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input name=pass type="password" id="password">
-                    </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name=password type="password" id="password">
+                        </div>
                 </div>
                 
                 
@@ -61,8 +61,8 @@
                 {{-- <div class="or-divider">or</div>
                 
                 <button class="signup-btn">SignUp</button> --}}
-            </form>
-        </div>
+            </div>
+        </form>
         </div>
     </section>
   </body>

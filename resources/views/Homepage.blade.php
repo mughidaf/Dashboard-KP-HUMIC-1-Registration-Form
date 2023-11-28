@@ -32,8 +32,12 @@
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Contact</a></li>
-
+                @guest
                 <li><a href="/UserLogin">Login</a></li>
+                @endguest
+                @auth
+                <li><a href="/UserLogout">Logout</a></li>
+                @endauth
             </ul>
         </div>
     </nav>
@@ -50,6 +54,7 @@
     <main>
         <div class="news">
             <h2>News & Activity</h2>
+            @auth
             <a href="/formMaker">
                 <button>
                     <span>
@@ -57,6 +62,7 @@
                     </span>
                 </button>
             </a>
+            @endauth
         </div>
         @foreach ($forms as $form)
         <div class="container-fluid">
@@ -71,10 +77,12 @@
                                 <div class="card-body">
                                     <div class="card-loop">
                                         <h4 class="card-title" style="color: black">{{$form->judul}}</h4>
+                                        @auth
                                         <div class="card-buttons">
                                             <a href="/deleteForm/{{$form->id}}" class="edit-button">Delete</a>
                                             <a href="/viewForm/{{$form->id}}" class="view-button">View</a>
                                         </div>
+                                        @endauth
                                     </div>
                                     
                                     <p class="card-text">{{$form->deskripsi}}</p>
