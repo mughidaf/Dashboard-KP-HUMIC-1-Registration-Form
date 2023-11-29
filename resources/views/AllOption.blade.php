@@ -24,18 +24,21 @@
 
             </tr>
         </thead>
-        <tfoot>
+        {{-- <tfoot>
             <tr>
                 <th></th>
                 <th></th>
                 
             </tr>
-        </tfoot>
+        </tfoot> --}}
             <tbody>
-                <!--1 tr satu kolum-->
-                
                     <tr>
-                        Testing
+                        <td>test</td>
+                        @foreach ($form->questions as $item)
+                            @if (!preg_match('/\b(?:name|nama)\b/i', $item->question))
+                                <td>{{$item->question}}</td>
+                            @endif
+                        @endforeach
                     </tr>
             </tbody>
     </table>
