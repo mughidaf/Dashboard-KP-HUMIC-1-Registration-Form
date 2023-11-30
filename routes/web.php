@@ -47,6 +47,10 @@ Route::get('/UserLogin', function () {
     return view('UserLogin');
 });
 
+Route::get('/EditPage', function () {
+    return view('EditPage');
+});
+
 Route::get('/UserLogout',[UserController::class,'logout']);
 
 Route::get('/userForm/{id}',[FormQuestionController::class,'show']);
