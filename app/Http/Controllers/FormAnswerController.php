@@ -103,21 +103,36 @@ class FormAnswerController extends Controller
 
         return view('/MoreOption',['identitas' => $identitas,'question' => $tanya]);
     }
-
+    
     public function openFile($filename){
         $filePath = 'Storage/' . $filename;
-
-    // Periksa apakah file ada di penyimpanan
-    if (Storage::exists($filePath)) {
+        
+        // Periksa apakah file ada di penyimpanan
+        if (Storage::exists($filePath)) {
         // Mengembalikan file ke browser untuk dibuka di tab baru
         return response()->file(storage_path('app/' . $filePath));
     } else {
         // Handle jika file tidak ditemukan
         return abort(404, 'File not found');
     }
+}
+    public function allData($id){
+        $form = Form::find($id);
+        $cek= $form->Questions()
+        ->whereRaw("LOWER(question) REGEXP '[[:<:]](nama|name)[[:>:]]'")->first();
+
+        if ($cek) {
+            $questionId = $cek->id;
+        } else {
+            $questionId = null;
+        }
+        
+        $identitas = FormQuestion::find($questionId);
+
+        return view('AllOption',['form' => $form,'identitas' => $identitas]);
     }
 
-    /**
+/**
      * Show the form for editing the specified resource.
      */
     public function edit(FormAnswer $formAnswer)
@@ -141,8 +156,4 @@ class FormAnswerController extends Controller
         //
     }
 
-    public function allData($id){
-        $form = Form::find($id);
-        return view('AllOption',['form' => $form]);
-    }
 }

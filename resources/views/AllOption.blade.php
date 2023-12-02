@@ -24,22 +24,39 @@
 
             </tr>
         </thead>
-        {{-- <tfoot>
-            <tr>
-                <th></th>
-                <th></th>
-                
-            </tr>
-        </tfoot> --}}
             <tbody>
-                    <tr>
-                        <td>test</td>
-                        @foreach ($form->questions as $item)
-                            @if (!preg_match('/\b(?:name|nama)\b/i', $item->question))
-                                <td>{{$item->question}}</td>
+                @php $i = 0; @endphp
+                @foreach ($form->questions[0]->answers as $count)
+                <tr>
+                    @php
+                        if ($identitas != null) {
+                            $nama = $identitas->Answers[$i]->answer;
+                        }
+                    @endphp
+                    @if ($identitas != null)
+                        <td>{{$nama}}</td>
+                    @else
+                        <td>-</td>
+                    @endif
+                    @foreach ($form->questions as $item)
+                        @if (!preg_match('/\b(?:name|nama)\b/i', $item->question))
+                        {{-- <td>{{ $item->answers[$i]->answer }}</td> --}}
+                            @if ($item->type == "file")
+                                <td>
+                                    <a href="/Storage/{{$item->answers[$i]->answer}}">Click to see the document</a>
+                                </td>
+                            @elseif ($item->type == "ttd")
+                                <td>
+                                    <img src="{{$item->answers[$i]->answer}}" alt="sadsa">
+                                </td>
+                            @else   
+                                <td>{{$item->answers[$i]->answer}}</td>
                             @endif
-                        @endforeach
-                    </tr>
+                        @endif
+                    @endforeach
+                </tr>
+                    @php $i++; @endphp
+                @endforeach
             </tbody>
     </table>
     
