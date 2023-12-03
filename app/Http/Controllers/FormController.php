@@ -98,9 +98,49 @@ class FormController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Form $form)
+    public function edit(Request $request, $id)
     {
-        //
+        $judul = $request->judul;
+        $deskripsi = $request->deskripsi;
+        $pertanyaan = $request->pertanyaan;
+        $rujukan = $request->rujukan;
+        $tanda = $request->input("tanda-opsi");
+        $opsi = $request->opsi;
+        $form = Form::find($id);
+        Form::where('id',$form->id)->update([
+            'judul'=>$judul,
+            'deskripsi'=> $deskripsi
+        ]);
+
+        for ($i = 0; $i < count($pertanyaan);$i++){
+            FormQuestion::where('id',$rujukan[$i])->update([
+                'question' => $pertanyaan[$i]
+            ]);
+        }
+
+        for ($i = 0; $i < count($opsi);$i++){
+            FormOption::where('id',$tanda[$i])->update([
+                'option'=> $opsi[$i]
+            ]);
+        }
+
+
+    }
+
+    public function showEdit($id){
+        $form = Form::find($id);
+        $cek= $form->Questions()
+        ->whereRaw("LOWER(question) REGEXP '[[:<:]](nama|name)[[:>:]]'")->first();
+
+        if ($cek) {
+            $questionId = $cek->id;
+        } else {
+            $questionId = null;
+        }
+        
+        $identitas = FormQuestion::find($questionId);
+
+        return view('/EditPage',['form'=>$form]);
     }
 
     /**

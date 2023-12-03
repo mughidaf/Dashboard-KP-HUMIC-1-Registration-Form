@@ -56,5 +56,7 @@ Route::get('/UserLogout',[UserController::class,'logout']);
 Route::get('/userForm/{id}',[FormQuestionController::class,'show']);
 Route::get('/viewForm/{id}',[FormAnswerController::class,'show']);
 Route::get('/deleteForm/{id}',[FormController::class,'destroy']);
+Route::get('/editingForm/{id}',[FormController::class,'showEdit']);
 Route::get('/Details/{id}',[FormAnswerController::class,'detail']);
 Route::get('/AllResult/{id}',[FormAnswerController::class,'allData']);
+Route::post('/editForm/{id}',[FormController::class,'edit']);

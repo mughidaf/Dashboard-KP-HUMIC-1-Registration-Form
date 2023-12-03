@@ -79,6 +79,7 @@
                                         <h4 class="card-title" style="color: black">{{$form->judul}}</h4>
                                         @auth
                                         <div class="card-buttons">
+                                            <a href="/editingForm/{{$form->id}}" class="edit-button">Edit</a>
                                             <a href="/deleteForm/{{$form->id}}" class="edit-button">Delete</a>
                                             <a href="/viewForm/{{$form->id}}" class="view-button">View</a>
                                         </div>
