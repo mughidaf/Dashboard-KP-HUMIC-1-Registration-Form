@@ -35,17 +35,17 @@
                             <label for="fileInput" class="upload-icon"><i class="fa-solid fa-image"></i></label>
                             <label for="judul">Judul Form:</label>
                             <input type="text" id="judul" name="judul" placeholder="{{$form->judul}}" value="{{old('judul',$form->judul)}}">
-                            <img id="imagePreview" src="#" style="max-width: 300x; max-height: 300px;">
+                            <img id="imagePreview" src="/storage/{{$form->gambar}}" style="max-width: 300x; max-height: 300px;">
                         </div>
-
+                        
                         <label for="deskripsi">Deskripsi:</label>
                         <textarea class="deskripsi" id="deskripsi" name="deskripsi" rows="3" required>{{$form->deskripsi}}</textarea>
                     </div>
-
+                    
                     {{-- asdahsdasjkd --}}
-
+                    
                     @foreach ($form->questions as $item)
-                        @if ($item->type == 'teks')
+                    @if ($item->type == 'teks')
                         <div class="form-container">
                             <input class="text_question" placeholder="{{$item->question}}" type="text" name="pertanyaan[]" value="{{old('pertanyaan', $item->question)}}" >
                             <input type="hidden" name="rujukan[]" value="{{$item->id}}">
