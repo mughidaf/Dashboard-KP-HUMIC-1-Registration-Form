@@ -124,6 +124,16 @@ class FormController extends Controller
             ]);
         }
 
+        if ($request->gambar != null){
+            $validatedData['gambar'] = $request->file('gambar')->store('post-images');
+            Form::where('id', $form->id)
+            ->update([
+                'gambar' => $validatedData['gambar']
+            ]);
+        }
+
+        return redirect('/')->with('status', 'Data berhasil disimpan.');
+
 
     }
 

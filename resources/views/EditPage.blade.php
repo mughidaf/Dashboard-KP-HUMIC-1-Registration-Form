@@ -20,7 +20,7 @@
 
 <body>
     <header>
-        <h1>Form Maker</h1>
+        <h1>Form Editor</h1>
     </header>
     <section class="layout">
         <div class="Split1">
