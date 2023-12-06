@@ -161,6 +161,10 @@ header h2 {
     font-size: 1.5rem;
 }
 
+h2 {
+    text-align: center;
+}
+
 .img-absolute {
     position: absolute;
     top: 0;
@@ -184,12 +188,6 @@ main {
 h2 {
     text-align: center;
     padding: 2rem;
-}
-
-button {
-    position: relative;
-    top: 50%;
-    left: 50%;
 }
 
 .container-fluid {
@@ -288,14 +286,6 @@ a {
     }
 }
 
-button {
-    background-color: #ef0028;
-    border-radius: 0.9em;
-    padding: 0.8em 1.2em 0.8em 1em;
-    transition: all ease-in-out 0.2s;
-    font-size: 16px;
-}
-
 button span {
     display: flex;
     justify-content: center;
@@ -305,14 +295,7 @@ button span {
 }
 
 button:hover {
-    background-color: #ab188b;
-}
-
-.card-buttons {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    background-color: #ab1855;
 }
 
 .edit-button,
@@ -334,6 +317,56 @@ button:hover {
     background-color: #ab188b;
 }
 
-.card-loop .card-buttons {
+.create-button {
+    background-color: #ef0028;
+    border-radius: 0.9em;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.news {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-loop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-buttons {
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.card:hover .card-buttons {
+    opacity: 1;
+}
+
+.edit-button,
+.delete-button,
+.view-button {
+    background-color: #ef0028;
+    border-radius: 0.9em;
+    padding: 0.3em 0.5em;
+    margin-left: 10px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
