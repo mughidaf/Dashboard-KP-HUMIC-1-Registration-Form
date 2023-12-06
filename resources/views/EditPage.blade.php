@@ -21,6 +21,9 @@
 <body>
     <header>
         <h1>Form Editor</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
     </header>
     <section class="layout">
         <div class="Split1">

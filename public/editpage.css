@@ -480,3 +480,30 @@ button {
     border: none;
     cursor: pointer;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff5555;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}

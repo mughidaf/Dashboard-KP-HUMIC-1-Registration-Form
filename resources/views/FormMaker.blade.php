@@ -15,7 +15,10 @@
   <body>
     <header>
       <h1>Form Maker</h1>
-    </header>
+      <nav>
+          <a href="/">Home</a>
+      </nav>
+  </header>
       <section class="layout">
         <div class="Split1">
           <div class="container">

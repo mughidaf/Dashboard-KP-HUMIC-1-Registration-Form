@@ -11,6 +11,9 @@
   <body>
     <header>
       <h1>Registration Form</h1>
+      <nav>
+        <a href="/">Home</a>
+    </nav>
     </header>
     <main>
         <div class="container">
